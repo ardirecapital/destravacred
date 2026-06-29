@@ -239,8 +239,8 @@ footer p,footer a{color:var(--muted);display:block;margin-bottom:7px;font-size:.
 .wa-float svg{width:26px;height:26px;fill:white;flex-shrink:0}
 .wa-label{display:none}
 .wa-hours{display:none}
-.mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:997;background:var(--gold);padding:14px;text-align:center}
-.mobile-cta a{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy3);letter-spacing:.08em;text-transform:uppercase}
+.mobile-cta{display:none!important}
+.mobile-cta a{display:none!important}
 
 /* MODAL LGPD */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px}
@@ -290,7 +290,7 @@ height:auto!important;
   .top-products-inner{flex-wrap:wrap}
   .tp-item{min-width:50%;border-bottom:1px solid var(--border)}
   section{padding:60px 0}
-  .mobile-cta{display:block}
+  .mobile-cta{display:none!important}
   .sim-row{grid-template-columns:1fr 1fr;gap:10px}.sim-modal-row{grid-template-columns:1fr}.sim-summary-grid{grid-template-columns:1fr}
   .hero-logo img{width:min(560px,95vw);height:auto}
   .hero-tagline{font-size:clamp(10px,2.4vw,12px);letter-spacing:4px;max-width:100%}
@@ -314,7 +314,7 @@ height:auto!important;
     <button class="modal-close" onclick="document.getElementById('lgpdModal').classList.remove('open')">✕</button>
     <h3>Política de Privacidade</h3>
     <p><strong>Ardire Capital Securitizadora</strong> — constituída nos termos da Lei 14.430/2022.</p>
-    <p><strong>Coleta de dados:</strong> Coletamos apenas os dados fornecidos voluntariamente por você por meio de nossos formulários de contato: nome, telefone, e-mail e interesse declarado. Não coletamos dados sensíveis sem consentimento expresso.</p>
+    <p><strong>Coleta de dados:</strong> Coletamos apenas os dados fornecidos voluntariamente por você por meio de nossos formulários de contato: nome, CPF, telefone, e-mail e interesse declarado. Não coletamos dados sensíveis sem consentimento expresso.</p>
     <p><strong>Uso dos dados:</strong> As informações são utilizadas exclusivamente para contato comercial e análise de crédito, conforme solicitado pelo usuário. Não compartilhamos dados com terceiros para fins publicitários.</p>
     <p><strong>Armazenamento:</strong> Os dados são armazenados de forma segura e pelo prazo necessário para atendimento da finalidade declarada, respeitando os prazos legais aplicáveis.</p>
     <p><strong>Seus direitos (LGPD — Lei 13.709/2018):</strong> Você tem direito de acessar, corrigir, solicitar a exclusão ou a portabilidade dos seus dados pessoais a qualquer momento. Para exercer esses direitos, entre em contato pelo e-mail: <strong>contato@ardirecapital.com.br</strong></p>
@@ -400,7 +400,6 @@ height:auto!important;
     <div class="hero-tagline">Soluções em Crédito para Empresas e Pessoas</div>
     <p>Da solicitação à análise de crédito em poucos passos — soluções financeiras para pessoas e empresas que precisam de agilidade, clareza e atendimento consultivo.</p>
     <div class="actions" style="margin-bottom:2rem">
-      <a href="https://wa.me/5516981266908" target="_blank" class="btn btn-primary">Fale com um consultor</a>
       <a href="#para-pessoas" class="btn btn-secondary">Conheça os produtos</a>
     </div>
   </div>
@@ -515,7 +514,7 @@ height:auto!important;
         <h2>Crédito para beneficiários, servidores e pessoas físicas</h2>
         <p>Atendimento focado em três linhas: Crédito INSS / Beneficiários, Crédito Servidor Público e Crédito Pessoal. A análise considera renda, documentação, margem quando aplicável e capacidade de pagamento.</p>
       </div>
-      <div class="actions"><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-primary">Simular agora pelo WhatsApp</a></div>
+      
     </div>
     <div class="split-photo reveal">
       <img src="../pessoa_fisica.jpg" alt="Crédito para pessoas" onerror="this.parentElement.innerHTML='<div class='ph'>Foto carrega após publicação</div>'">
@@ -543,7 +542,7 @@ height:auto!important;
 <div class="container">
   <div class="prod-page">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito INSS / Beneficiários</h3><div class="dest-badge" style="margin-top:.8rem">Beneficiários</div><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
+      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito INSS / Beneficiários</h3><div class="dest-badge" style="margin-top:.8rem">Beneficiários</div></div>
       <div><p class="prod-intro">Linha de crédito para aposentados, pensionistas e beneficiários com renda mensal recorrente. A contratação é feita conforme regras de elegibilidade, margem disponível e política de crédito vigente.</p>
         <div class="prod-block"><strong>Para quem é</strong><p>Aposentados, pensionistas e beneficiários que recebem renda recorrente e precisam de crédito com análise direcionada ao perfil do benefício.</p></div>
         <div class="prod-block"><strong>Como funciona</strong><p>A equipe valida os dados cadastrais, o tipo de benefício, a renda recebida e a possibilidade de contratação. Quando houver margem consignável, a parcela pode ser descontada diretamente do benefício, conforme regras aplicáveis.</p></div>
@@ -553,7 +552,7 @@ height:auto!important;
   </div>
   <div class="prod-page" id="produto-siape">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Servidores</div><h3>Crédito Servidor Público</h3><div class="dest-badge" style="margin-top:.8rem">Servidor Federal</div><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
+      <div><div class="eyebrow">Para Servidores</div><h3>Crédito Servidor Público</h3><div class="dest-badge" style="margin-top:.8rem">Servidor Federal</div></div>
       <div><p class="prod-intro">O Crédito Servidor Público é uma modalidade voltada a servidores públicos com renda estável e vínculo funcional. A operação considera renda, documentação, capacidade de pagamento e política de crédito vigente, conforme elegibilidade e aprovação da análise.</p>
         <div class="prod-block"><strong>Para quem é</strong><p>Servidores públicos ativos, aposentados ou pensionistas, desde que possuam renda comprovável e estejam aptos à contratação conforme análise cadastral, capacidade de pagamento e política de crédito.</p></div>
         <div class="prod-block"><strong>Como funciona</strong><p>Após a simulação, são conferidos vínculo, margem consignável, renda, documentação e regras do convênio. Se aprovado, o contrato é formalizado digitalmente e a parcela pode ser descontada em folha, trazendo maior previsibilidade de pagamento.</p></div>
@@ -563,7 +562,7 @@ height:auto!important;
   </div>
   <div class="prod-page" id="produto-pessoal">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito Pessoal</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
+      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito Pessoal</h3></div>
       <div><p class="prod-intro">Linha de crédito para pessoa física que precisa de recurso para organizar o orçamento, quitar despesas, resolver imprevistos ou concentrar pagamentos.</p>
         <div class="prod-block"><strong>Para quem é</strong><p>Pessoas físicas com renda comprovável, conta bancária ativa e capacidade de pagamento compatível com o valor solicitado.</p></div>
         <div class="prod-block"><strong>Como funciona</strong><p>A análise considera renda, histórico financeiro, comprometimento mensal e documentação básica. As condições finais são definidas após avaliação individual.</p></div>
@@ -584,7 +583,7 @@ height:auto!important;
         <h2>Capital de giro e antecipação para destravar o caixa</h2>
         <p>Foco em operações empresariais objetivas: Capital de Giro e Antecipação de Maquininha. A análise considera faturamento, recebíveis, histórico operacional e documentação do CNPJ.</p>
       </div>
-      <div class="actions"><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk">Falar com consultor</a></div>
+      
     </div>
     <div class="split-photo reveal">
       <img src="../empresas.jpg" alt="Soluções para empresas" onerror="this.parentElement.innerHTML='<div class='ph'>Foto carrega após publicação</div>'">
@@ -608,7 +607,7 @@ height:auto!important;
 <div class="container">
   <div class="prod-page">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Empresas</div><h3>Capital de Giro</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div><div class="eyebrow">Para Empresas</div><h3>Capital de Giro</h3></div>
       <div><p class="prod-intro">Crédito empresarial para reforçar caixa, pagar fornecedores, comprar estoque, organizar compromissos de curto prazo ou sustentar o crescimento da operação.</p>
         <div class="prod-block"><strong>Para quem é</strong><p>Empresas com CNPJ ativo, faturamento recorrente e necessidade de capital operacional.</p></div>
         <div class="prod-block"><strong>Como funciona</strong><p>A análise considera faturamento, extratos, recebíveis, tempo de mercado, perfil dos sócios e capacidade de pagamento. A estrutura pode envolver parcelas fixas ou mecanismos de cobrança compatíveis com o fluxo da empresa.</p></div>
@@ -618,7 +617,7 @@ height:auto!important;
   </div>
   <div class="prod-page" id="produto-maquininha">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Empresas</div><h3>Antecipação de Maquininha</h3><div class="dest-badge" style="margin-top:.8rem;background:var(--gold-dk)">Recebíveis de Cartão</div><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div><div class="eyebrow">Para Empresas</div><h3>Antecipação de Maquininha</h3><div class="dest-badge" style="margin-top:.8rem;background:var(--gold-dk)">Recebíveis de Cartão</div></div>
       <div><p class="prod-intro">Solução para empresas que vendem no cartão e querem transformar recebíveis futuros ou já performados em dinheiro disponível para o caixa.</p>
         <div class="prod-block"><strong>Para quem é</strong><p>Comércios, lojas, restaurantes, salões, prestadores de serviço e empresas que realizam vendas via maquininha de cartão.</p></div>
         <div class="prod-block"><strong>Como funciona</strong><p>São avaliados volume de vendas, histórico da maquininha, agenda de recebíveis, CNPJ e documentos da empresa. Se aprovado, os recebíveis podem ser antecipados com deságio ou utilizados como base para estruturação de crédito.</p></div>
@@ -640,7 +639,7 @@ height:auto!important;
         <p>Simples, rápido e sem surpresas. Do primeiro contato ao dinheiro na conta.</p>
       </div>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div><div class="step-title">Solicite pelo WhatsApp ou formulário</div><div class="step-desc">Sem compromisso e sem burocracia logo de cara. Poucos cliques e já começamos.</div></div></div>
+        <div class="step"><div class="step-num">1</div><div><div class="step-title">Solicite pelo formulário</div><div class="step-desc">Sem compromisso e sem burocracia inicial. Preencha a simulação e nossa equipe analisa os dados.</div></div></div>
         <div class="step"><div class="step-num">2</div><div><div class="step-title">Análise rápida do seu perfil</div><div class="step-desc">Avaliamos sua situação com rapidez, sigilo e respeito. Sem constrangimento.</div></div></div>
         <div class="step"><div class="step-num">3</div><div><div class="step-title">Proposta clara e sem letra miúda</div><div class="step-desc">Apresentamos taxas, prazos e valores de forma transparente. Você decide sem pressão.</div></div></div>
         <div class="step"><div class="step-num">4</div><div><div class="step-title">Dinheiro na conta</div><div class="step-desc">Aprovado e formalizado, liberamos com agilidade. Acompanhamos até a conclusão.</div></div></div>
@@ -756,7 +755,6 @@ height:auto!important;
       <textarea id="mensagem" placeholder="Conte um pouco mais sobre o que você precisa..."></textarea>
       <div class="form-btns">
         <button type="submit" class="btn btn-primary" style="border:0;width:100%">Enviar direto para a Ardire</button>
-        <button type="button" class="btn btn-dk" onclick="sendContatoWhatsapp()" style="width:100%;justify-content:center">Enviar também pelo WhatsApp</button>
       </div>
       <p style="font-size:.74rem;color:#94a3b8;text-align:center;margin-top:10px">Seus dados são protegidos pela <span class="lgpd-link" onclick="document.getElementById('lgpdModal').classList.add('open')">LGPD — Política de Privacidade</span>.</p>
     </form>
@@ -821,11 +819,6 @@ height:auto!important;
   </a>
 </div>
 
-<!-- MOBILE CTA -->
-<div class="mobile-cta">
-  <a href="https://wa.me/5516981266908" target="_blank">Simular agora — WhatsApp</a>
-</div>
-
 <script>
 // WATERMARK
 const termos=['CCB','Duplicata','CRI','CRA','FIDC','Debênture','Recebível','Nota Comercial','Cessão','Lastro','Securitização','CPR','CDCA','Consignado','INSS','Antecipação','Capital','Equity','Garantia'];
@@ -847,8 +840,8 @@ const prodConfig={
   'inss':{taxa:0.20,maxPrazo:36,tipo:'parcela',label:'Crédito INSS / Beneficiários'},
   'siape':{taxa:0.20,maxPrazo:36,tipo:'parcela',label:'Crédito Servidor Público'},
   'pessoal':{taxa:0.20,maxPrazo:12,tipo:'parcela',label:'Crédito Pessoal'},
-  'giro':{taxa:0.15,maxPrazo:30,tipo:'diario',label:'Capital de Giro'},
-  'maquininha':{taxa:0.15,maxPrazo:1,tipo:'desagio',label:'Antecipação de Maquininha'}
+  'giro':{taxa:0.30,maxPrazo:30,tipo:'diario',label:'Capital de Giro'},
+  'maquininha':{taxa:0.05,maxPrazo:1,tipo:'desagio',label:'Antecipação de Maquininha'}
 };
 
 let ultimaSimulacao=null;
