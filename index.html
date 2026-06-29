@@ -38,7 +38,7 @@ img{display:block;max-width:100%}
 .hamburger{display:none;background:transparent;border:1px solid var(--border);color:white;border-radius:8px;font-size:1.3rem;width:38px;height:38px;cursor:pointer}
 
 /* HERO */
-.hero{min-height:100vh;padding-top:78px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(rgba(13,30,48,.80),rgba(13,30,48,.88)),url('hero.jpg') center/cover no-repeat}
+.hero{min-height:100vh;padding-top:78px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(rgba(13,30,48,.80),rgba(13,30,48,.88)),url('../hero.jpg') center/cover no-repeat}
 .hero .watermark{opacity:.05}
 .hero-inner{position:relative;z-index:1;padding:3rem 0 1.5rem}
 .hero-logo{margin-bottom:1.8rem}
@@ -63,7 +63,7 @@ img{display:block;max-width:100%}
 .sim-result{background:rgba(213,173,85,.12);border:1px solid rgba(213,173,85,.4);border-radius:8px;padding:10px 16px;text-align:center;min-width:150px}
 .sim-result-label{font-size:.65rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
 .sim-result-val{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;color:var(--gold);line-height:1.2}
-.sim-disclaimer{font-size:.68rem;color:rgba(255,255,255,.35);margin-top:10px;line-height:1.5}.sim-send{height:52px;padding:10px 20px;white-space:nowrap}.sim-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.sim-modal-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.sim-summary{background:#f8fafc;border:1px solid rgba(26,49,80,.12);border-radius:12px;padding:14px;margin:12px 0 16px;color:#334155;font-size:.88rem;line-height:1.6}.sim-summary strong{color:var(--navy)}
+.sim-disclaimer{font-size:.68rem;color:rgba(255,255,255,.35);margin-top:10px;line-height:1.5}.sim-send{height:52px;padding:10px 20px;white-space:nowrap}.sim-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.sim-modal-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.sim-summary{background:#f8fafc;border:1px solid rgba(26,49,80,.12);border-radius:12px;padding:16px;margin:12px 0 16px;color:#334155;font-size:.9rem;line-height:1.5}.sim-summary-title{font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);margin-bottom:10px}.sim-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px}.sim-summary-item{background:white;border:1px solid rgba(26,49,80,.08);border-radius:10px;padding:10px}.sim-summary-item span{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:#64748b;margin-bottom:2px}.sim-summary-item strong{display:block;color:var(--navy);font-size:.98rem}.sim-summary-note{font-size:.78rem;color:#64748b;margin-top:10px;line-height:1.5}.sim-summary strong{color:var(--navy)}
 
 /* TARJA */
 .top-products{background:var(--navy2);border-bottom:3px solid var(--gold)}
@@ -291,7 +291,7 @@ height:auto!important;
   .tp-item{min-width:50%;border-bottom:1px solid var(--border)}
   section{padding:60px 0}
   .mobile-cta{display:block}
-  .sim-row{grid-template-columns:1fr 1fr;gap:10px}.sim-modal-row{grid-template-columns:1fr}
+  .sim-row{grid-template-columns:1fr 1fr;gap:10px}.sim-modal-row{grid-template-columns:1fr}.sim-summary-grid{grid-template-columns:1fr}
   .hero-logo img{width:min(560px,95vw);height:auto}
   .hero-tagline{font-size:clamp(10px,2.4vw,12px);letter-spacing:4px;max-width:100%}
 }
@@ -333,7 +333,7 @@ height:auto!important;
     <div class="sim-summary" id="sim-summary">Preencha o simulador para gerar o resumo.</div>
     <div class="sim-modal-row">
       <div>
-        <label>Nome</label>
+        <label>Nome completo</label>
         <input type="text" id="sim-nome" placeholder="Nome e sobrenome" autocomplete="name" maxlength="80">
       </div>
       <div>
@@ -341,6 +341,8 @@ height:auto!important;
         <input type="tel" id="sim-telefone" placeholder="(00) 00000-0000" autocomplete="tel" maxlength="20">
       </div>
     </div>
+    <label>CPF</label>
+    <input type="text" id="sim-cpf" placeholder="000.000.000-00" inputmode="numeric" autocomplete="off" maxlength="14">
     <label>E-mail</label>
     <input type="email" id="sim-email" placeholder="seu@email.com" autocomplete="email" maxlength="120">
     <div class="sim-actions">
@@ -388,7 +390,7 @@ height:auto!important;
 <div class="container hero-inner">
   <div class="reveal">
     <div class="hero-logo">
-      <img src="logo-ardire.png" alt="Ardire Capital"
+      <img src="../logo-ardire.png" alt="Ardire Capital"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <div style="display:none">
         <span style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(40px,7vw,80px);font-weight:700;letter-spacing:4px;color:#f8fafc;display:block">ARDIRE</span>
@@ -471,7 +473,7 @@ height:auto!important;
     <p>Atuamos com clareza, agilidade e os mais altos padrões éticos — sempre alinhando os interesses dos nossos clientes e parceiros à solidez e à governança que o mercado exige.</p>
     <div class="actions" style="margin-top:22px"><a href="#contato" class="btn btn-dk">Entre em contato</a></div>
   </div>
-  <div class="about-img reveal"><img src="sobre.png" alt="Sobre a Ardire Capital">
+  <div class="about-img reveal"><img src="../sobre.png" alt="Sobre a Ardire Capital">
   </div>
 </div>
 </section>
@@ -516,7 +518,7 @@ height:auto!important;
       <div class="actions"><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-primary">Simular agora pelo WhatsApp</a></div>
     </div>
     <div class="split-photo reveal">
-      <img src="pessoa_fisica.jpg" alt="Crédito para pessoas" onerror="this.parentElement.innerHTML='<div class='ph'>Foto carrega após publicação</div>'">
+      <img src="../pessoa_fisica.jpg" alt="Crédito para pessoas" onerror="this.parentElement.innerHTML='<div class='ph'>Foto carrega após publicação</div>'">
     </div>
   </div>
   <div class="grid-3">
@@ -552,7 +554,7 @@ height:auto!important;
   <div class="prod-page" id="produto-siape">
     <div class="prod-box reveal">
       <div><div class="eyebrow">Para Servidores</div><h3>Crédito Servidor Público</h3><div class="dest-badge" style="margin-top:.8rem">Servidor Federal</div><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
-      <div><p class="prod-intro">O Crédito Servidor Público é uma modalidade voltada a servidores públicos federais vinculados ao Sistema Integrado de Administração de Pessoal. Em regra, a operação considera margem consignável e pode ter desconto diretamente na folha de pagamento, conforme elegibilidade do convênio e aprovação da análise.</p>
+      <div><p class="prod-intro">O Crédito Servidor Público é uma modalidade voltada a servidores públicos com renda estável e vínculo funcional. A operação considera renda, documentação, capacidade de pagamento e política de crédito vigente, conforme elegibilidade e aprovação da análise.</p>
         <div class="prod-block"><strong>Para quem é</strong><p>Servidores públicos ativos, aposentados ou pensionistas, desde que possuam renda comprovável e estejam aptos à contratação conforme análise cadastral, capacidade de pagamento e política de crédito.</p></div>
         <div class="prod-block"><strong>Como funciona</strong><p>Após a simulação, são conferidos vínculo, margem consignável, renda, documentação e regras do convênio. Se aprovado, o contrato é formalizado digitalmente e a parcela pode ser descontada em folha, trazendo maior previsibilidade de pagamento.</p></div>
         <div class="prod-block"><strong>O que analisamos</strong><p>Identificação do servidor, matrícula ou vínculo funcional, contracheque ou comprovante de renda, CPF, comprovante de residência e dados bancários. A aprovação final depende da política de crédito e da validação operacional.</p></div>
@@ -585,7 +587,7 @@ height:auto!important;
       <div class="actions"><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk">Falar com consultor</a></div>
     </div>
     <div class="split-photo reveal">
-      <img src="empresas.jpg" alt="Soluções para empresas" onerror="this.parentElement.innerHTML='<div class='ph'>Foto carrega após publicação</div>'">
+      <img src="../empresas.jpg" alt="Soluções para empresas" onerror="this.parentElement.innerHTML='<div class='ph'>Foto carrega após publicação</div>'">
     </div>
   </div>
   <div class="grid-2">
@@ -729,6 +731,8 @@ height:auto!important;
       <input type="text" id="nome" placeholder="Seu nome completo" required>
       <label>Telefone / WhatsApp</label>
       <input type="tel" id="telefone" placeholder="(00) 00000-0000" required>
+      <label>CPF</label>
+      <input type="text" id="cpf" placeholder="000.000.000-00" inputmode="numeric" autocomplete="off" maxlength="14" required>
       <label>E-mail</label>
       <input type="email" id="email" placeholder="seu@email.com" required>
       <label>O que você precisa?</label>
@@ -780,7 +784,7 @@ height:auto!important;
 <div class="container">
   <div class="footer-grid">
     <div>
-      <img src="logo-ardire.png" alt="Ardire Capital" style="height:38px;margin-bottom:12px;object-fit:contain" onerror="this.style.display='none'">
+      <img src="../logo-ardire.png" alt="Ardire Capital" style="height:38px;margin-bottom:12px;object-fit:contain" onerror="this.style.display='none'">
       <p>Soluções em crédito para empresas e pessoas. Securitizadora constituída sob a Lei 14.430/2022.</p>
       <div class="footer-selos">
         <div class="selo"><span class="selo-icon">🔒</span> Site seguro</div>
@@ -1030,6 +1034,74 @@ function resumoSimulacaoTexto(){
   return 'Produto: '+sim.produto+'\n'+sim.detalhe+'\nObservação: simulação meramente ilustrativa, sujeita à análise de crédito, confirmação cadastral, documentação e aprovação.';
 }
 
+
+function onlyDigits(v){
+  return String(v || '').replace(/\D/g,'');
+}
+
+function maskCpfValue(v){
+  const d = onlyDigits(v).slice(0,11);
+  if(d.length <= 3) return d;
+  if(d.length <= 6) return d.replace(/(\d{3})(\d+)/,'$1.$2');
+  if(d.length <= 9) return d.replace(/(\d{3})(\d{3})(\d+)/,'$1.$2.$3');
+  return d.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/,'$1.$2.$3-$4');
+}
+
+function isValidCpf(cpf){
+  const d = onlyDigits(cpf);
+  if(d.length !== 11) return false;
+  if(/^(\d)\1{10}$/.test(d)) return false;
+  let sum = 0;
+  for(let i=0;i<9;i++) sum += parseInt(d.charAt(i),10) * (10 - i);
+  let check = 11 - (sum % 11);
+  if(check >= 10) check = 0;
+  if(check !== parseInt(d.charAt(9),10)) return false;
+  sum = 0;
+  for(let i=0;i<10;i++) sum += parseInt(d.charAt(i),10) * (11 - i);
+  check = 11 - (sum % 11);
+  if(check >= 10) check = 0;
+  return check === parseInt(d.charAt(10),10);
+}
+
+function setupCpfMasks(){
+  ['sim-cpf','cpf'].forEach(function(id){
+    const el = document.getElementById(id);
+    if(el){
+      el.addEventListener('input', function(){
+        this.value = maskCpfValue(this.value);
+      });
+    }
+  });
+}
+
+function updateSimSummary(){
+  const produto = document.getElementById('sim-produto');
+  const valor = document.getElementById('sim-valor');
+  const prazo = document.getElementById('sim-prazo');
+  const parcela = document.getElementById('sim-parcela');
+  const summary = document.getElementById('sim-summary');
+  if(!produto || !valor || !prazo || !parcela || !summary) return;
+
+  const produtoTxt = produto.options[produto.selectedIndex] ? produto.options[produto.selectedIndex].text : '-';
+  const valorNum = Number(valor.value || 0);
+  const prazoTxt = prazo.value ? prazo.value + ' meses' : '-';
+  const parcelaTxt = parcela.textContent && parcela.textContent.trim() !== 'R$ —' ? parcela.textContent.trim() : '-';
+  const totalTxt = (valorNum > 0 && prazo.value && parcelaTxt !== '-') ? formatBR(parseBR(parcelaTxt) * Number(prazo.value)) : '-';
+
+  summary.innerHTML = `
+    <div class="sim-summary-title">Resumo da simulação</div>
+    <div class="sim-summary-grid">
+      <div class="sim-summary-item"><span>Produto</span><strong>${produtoTxt}</strong></div>
+      <div class="sim-summary-item"><span>Valor solicitado</span><strong>${valorNum > 0 ? formatBR(valorNum) : '-'}</strong></div>
+      <div class="sim-summary-item"><span>Prazo</span><strong>${prazoTxt}</strong></div>
+      <div class="sim-summary-item"><span>Parcela estimada</span><strong>${parcelaTxt}</strong></div>
+      <div class="sim-summary-item"><span>Total estimado</span><strong>${totalTxt}</strong></div>
+      <div class="sim-summary-item"><span>Status</span><strong>Sujeito à análise</strong></div>
+    </div>
+    <div class="sim-summary-note">Simulação meramente ilustrativa. A taxa final, aprovação, documentação e liberação dependem da análise de crédito e validação cadastral.</div>
+  `;
+}
+
 function openSimModal(){
   calcSimulador();
   const resumo=resumoSimulacaoTexto();
@@ -1039,6 +1111,7 @@ function openSimModal(){
     return;
   }
   if(box)box.innerHTML='<strong>Resumo da simulação</strong><br>'+resumo.replace(/\n/g,'<br>');
+  updateSimSummary();
   document.getElementById('simModal').classList.add('open');
 }
 
@@ -1054,6 +1127,11 @@ function dadosSimContato(){
 }
 
 function sendSimWhatsapp(){
+  if(!isValidCpf(cpf)){
+    alert('Informe um CPF válido.');
+    return;
+  }
+
   const resumo=resumoSimulacaoTexto();
   if(!resumo){alert('Preencha o valor desejado para gerar a simulação.');return}
   const d=dadosSimContato();
@@ -1063,6 +1141,11 @@ function sendSimWhatsapp(){
 }
 
 async function sendSimDireto(){
+  if(!isValidCpf(cpf)){
+    alert('Informe um CPF válido.');
+    return;
+  }
+
   const resumo=resumoSimulacaoTexto();
   if(!resumo){alert('Preencha o valor desejado para gerar a simulação.');return}
   const d=dadosSimContato();
@@ -1158,10 +1241,23 @@ function sendContatoWhatsapp(){
   const texto=montarContatoTexto();
   if(!texto)return;
   window.open(`https://wa.me/5516981266908?text=${encodeURIComponent(texto)}`,'_blank');
+  if(!isValidCpf(cpf)){
+    alert('Informe um CPF válido.');
+    return;
+  }
+
 }
 
 function sendWA(e){sendContatoDireto(e)}
 function sendContatoEmail(){const fakeEvent={preventDefault(){},submitter:null};sendContatoDireto(fakeEvent)}
+
+function parseBR(value){
+  const cleaned = String(value || '').replace(/[^\d,.-]/g,'').replace(/\./g,'').replace(',','.');
+  return Number(cleaned || 0);
+}
+
+
+document.addEventListener('DOMContentLoaded', setupCpfMasks);
 </script>
 </body>
 </html>
