@@ -1075,27 +1075,39 @@ function setupCpfMasks(){
 }
 
 function updateSimSummary(){
-  const produto = document.getElementById('sim-produto');
-  const valor = document.getElementById('sim-valor');
-  const prazo = document.getElementById('sim-prazo');
-  const parcela = document.getElementById('sim-parcela');
-  const summary = document.getElementById('sim-summary');
-  if(!produto || !valor || !prazo || !parcela || !summary) return;
+  const summary=document.getElementById('sim-summary');
+  if(!summary)return;
+  const sim=ultimaSimulacao||getSimulacao();
+  if(!sim){
+    summary.innerHTML='Preencha o simulador para gerar o resumo.';
+    return;
+  }
+  let valorSolicitado=moedaBR(sim.valor);
+  let prazoTexto='-';
+  let parcelaTexto=sim.resultado||'-';
+  let totalTexto='-';
 
-  const produtoTxt = produto.options[produto.selectedIndex] ? produto.options[produto.selectedIndex].text : '-';
-  const valorNum = Number(valor.value || 0);
-  const prazoTxt = prazo.value ? prazo.value + ' meses' : '-';
-  const parcelaTxt = parcela.textContent && parcela.textContent.trim() !== 'R$ —' ? parcela.textContent.trim() : '-';
-  const totalTxt = (valorNum > 0 && prazo.value && parcelaTxt !== '-') ? formatBR(parseBR(parcelaTxt) * Number(prazo.value)) : '-';
+  if(sim.tipo==='desagio'){
+    prazoTexto='À vista';
+    parcelaTexto='Valor líquido: '+sim.resultado;
+    totalTexto=sim.resultado;
+  }else if(sim.tipo==='diario'){
+    prazoTexto='30 dias';
+    parcelaTexto=sim.resultado;
+    totalTexto=moedaBR(sim.valor*(1+sim.taxa));
+  }else{
+    prazoTexto=sim.prazo+' '+(sim.prazo===1?'mês':'meses');
+    totalTexto=moedaBR(parseBR(sim.resultado)*Number(sim.prazo));
+  }
 
-  summary.innerHTML = `
+  summary.innerHTML=`
     <div class="sim-summary-title">Resumo da simulação</div>
     <div class="sim-summary-grid">
-      <div class="sim-summary-item"><span>Produto</span><strong>${produtoTxt}</strong></div>
-      <div class="sim-summary-item"><span>Valor solicitado</span><strong>${valorNum > 0 ? formatBR(valorNum) : '-'}</strong></div>
-      <div class="sim-summary-item"><span>Prazo</span><strong>${prazoTxt}</strong></div>
-      <div class="sim-summary-item"><span>Parcela estimada</span><strong>${parcelaTxt}</strong></div>
-      <div class="sim-summary-item"><span>Total estimado</span><strong>${totalTxt}</strong></div>
+      <div class="sim-summary-item"><span>Produto</span><strong>${sim.produto}</strong></div>
+      <div class="sim-summary-item"><span>Valor solicitado</span><strong>${valorSolicitado}</strong></div>
+      <div class="sim-summary-item"><span>Prazo</span><strong>${prazoTexto}</strong></div>
+      <div class="sim-summary-item"><span>Parcela estimada</span><strong>${parcelaTexto}</strong></div>
+      <div class="sim-summary-item"><span>Total estimado</span><strong>${totalTexto}</strong></div>
       <div class="sim-summary-item"><span>Status</span><strong>Sujeito à análise</strong></div>
     </div>
     <div class="sim-summary-note">Simulação meramente ilustrativa. A taxa final, aprovação, documentação e liberação dependem da análise de crédito e validação cadastral.</div>
@@ -1120,32 +1132,31 @@ function closeSimModal(){document.getElementById('simModal').classList.remove('o
 function dadosSimContato(){
   const nome=(document.getElementById('sim-nome').value||'').trim();
   const tel=(document.getElementById('sim-telefone').value||'').trim();
+  const cpf=(document.getElementById('sim-cpf').value||'').trim();
   const email=(document.getElementById('sim-email').value||'').trim();
   const validacao=validarDadosLead({nome,tel,email},{exigeTelefone:true,exigeEmail:true});
   if(!validacao.ok){alert(validacao.msg);return null}
-  return {nome:validacao.nome,tel:validacao.tel,email:validacao.email};
+  if(!isValidCpf(cpf)){alert('Informe um CPF válido.');return null}
+  return {nome:validacao.nome,tel:validacao.tel,cpf:maskCpfValue(cpf),email:validacao.email};
 }
 
 function sendSimWhatsapp(){
-  if(!isValidCpf(cpf)){
-    alert('Informe um CPF válido.');
-    return;
-  }
-
   const resumo=resumoSimulacaoTexto();
   if(!resumo){alert('Preencha o valor desejado para gerar a simulação.');return}
   const d=dadosSimContato();
   if(!d)return;
-  const texto=encodeURIComponent('Olá, Ardire Capital. Fiz uma simulação de crédito pelo site e quero atendimento.\n\n'+'Nome: '+d.nome+'\n'+'Telefone: '+d.tel+'\n'+'E-mail: '+d.email+'\n'+'\n'+resumo);
+  const texto=encodeURIComponent(`Olá, Ardire Capital. Fiz uma simulação de crédito pelo site e quero atendimento.
+
+Nome: ${d.nome}
+Telefone: ${d.tel}
+CPF: ${d.cpf}
+E-mail: ${d.email}
+
+${resumo}`);
   window.open('https://wa.me/5516981266908?text='+texto,'_blank');
 }
 
 async function sendSimDireto(){
-  if(!isValidCpf(cpf)){
-    alert('Informe um CPF válido.');
-    return;
-  }
-
   const resumo=resumoSimulacaoTexto();
   if(!resumo){alert('Preencha o valor desejado para gerar a simulação.');return}
   const d=dadosSimContato();
@@ -1153,7 +1164,7 @@ async function sendSimDireto(){
   const btn=event&&event.currentTarget?event.currentTarget:null;
   setBtnLoading(btn,true,'Enviar direto para a Ardire');
   try{
-    await enviarLeadDireto({origem:'Simulador de crédito do site',_subject:'Nova simulação de crédito pelo site',nome:d.nome,telefone:d.tel,email:d.email,resumo_da_simulacao:resumo});
+    await enviarLeadDireto({origem:'Simulador de crédito do site',_subject:'Nova simulação de crédito pelo site',nome:d.nome,telefone:d.tel,cpf:d.cpf,email:d.email,resumo_da_simulacao:resumo});
     alert('Simulação enviada para a Ardire Capital. Nossa equipe retornará pelo contato informado.');
     closeSimModal();
   }catch(e){
@@ -1199,12 +1210,14 @@ document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
 function getContatoDados(){
   const nome=document.getElementById('nome').value.trim();
   const tel=document.getElementById('telefone').value.trim();
+  const cpf=(document.getElementById('cpf').value||'').trim();
   const email=document.getElementById('email').value.trim();
   const int=document.getElementById('interesse').value;
   const msg=document.getElementById('mensagem').value.trim();
   const validacao=validarDadosLead({nome,tel,email},{exigeTelefone:true,exigeEmail:true});
   if(!validacao.ok){alert(validacao.msg);return null}
-  return {nome:validacao.nome,tel:validacao.tel,email:validacao.email,int,msg};
+  if(!isValidCpf(cpf)){alert('Informe um CPF válido.');return null}
+  return {nome:validacao.nome,tel:validacao.tel,cpf:maskCpfValue(cpf),email:validacao.email,int,msg};
 }
 
 function montarContatoTexto(){
@@ -1213,12 +1226,12 @@ function montarContatoTexto(){
   let texto='Olá, Ardire Capital!\n\n';
   texto+='Nome: '+d.nome+'\n';
   texto+='Telefone: '+d.tel+'\n';
+  texto+='CPF: '+d.cpf+'\n';
   texto+='E-mail: '+d.email;
   if(d.int)texto+='\nInteresse: '+d.int;
   if(d.msg)texto+='\n\nMensagem:\n'+d.msg;
   return texto;
 }
-
 
 async function sendContatoDireto(e){
   e.preventDefault();
@@ -1227,7 +1240,7 @@ async function sendContatoDireto(e){
   const btn=e&&e.submitter?e.submitter:document.querySelector('#contato button[type="submit"]');
   setBtnLoading(btn,true,'Enviar direto para a Ardire');
   try{
-    await enviarLeadDireto({origem:'Formulário de contato do site',_subject:'Novo contato pelo site Ardire Capital',nome:d.nome,telefone:d.tel,email:d.email,interesse:d.int||'Não informado',mensagem:d.msg||'Não informada'});
+    await enviarLeadDireto({origem:'Formulário de contato do site',_subject:'Novo contato pelo site Ardire Capital',nome:d.nome,telefone:d.tel,cpf:d.cpf,email:d.email,interesse:d.int||'Não informado',mensagem:d.msg||'Não informada'});
     alert('Contato enviado para a Ardire Capital. Nossa equipe retornará pelo contato informado.');
     document.querySelector('#contato form').reset();
   }catch(err){
@@ -1241,11 +1254,6 @@ function sendContatoWhatsapp(){
   const texto=montarContatoTexto();
   if(!texto)return;
   window.open(`https://wa.me/5516981266908?text=${encodeURIComponent(texto)}`,'_blank');
-  if(!isValidCpf(cpf)){
-    alert('Informe um CPF válido.');
-    return;
-  }
-
 }
 
 function sendWA(e){sendContatoDireto(e)}
