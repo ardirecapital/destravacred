@@ -233,12 +233,12 @@ footer p,footer a{color:var(--muted);display:block;margin-bottom:7px;font-size:.
 
 /* WA FLOAT */
 .wa-wrap{position:fixed;right:22px;bottom:22px;z-index:998;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
-.wa-float{display:flex;align-items:center;gap:10px;text-decoration:none;background:#25d366;border-radius:50px;padding:13px 20px 13px 15px;box-shadow:0 6px 24px rgba(37,211,102,.45);animation:wa-b 3s ease-in-out infinite}
+.wa-float{display:flex;align-items:center;justify-content:center;text-decoration:none;background:#25d366;border-radius:50%;width:58px;height:58px;padding:0;box-shadow:0 6px 24px rgba(37,211,102,.45);animation:wa-b 3s ease-in-out infinite}
 .wa-float:hover{box-shadow:0 8px 32px rgba(37,211,102,.6);transform:scale(1.04);animation:none}
 @keyframes wa-b{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 .wa-float svg{width:26px;height:26px;fill:white;flex-shrink:0}
-.wa-label{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;color:white;white-space:nowrap;letter-spacing:.04em}
-.wa-hours{font-size:.68rem;color:rgba(255,255,255,.7);text-align:right;font-family:'Barlow Condensed',sans-serif;letter-spacing:.04em}
+.wa-label{display:none}
+.wa-hours{display:none}
 .mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:997;background:var(--gold);padding:14px;text-align:center}
 .mobile-cta a{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy3);letter-spacing:.08em;text-transform:uppercase}
 
@@ -412,7 +412,6 @@ height:auto!important;
     <div class="hero-tagline">Soluções em Crédito para Empresas e Pessoas</div>
     <p>Da solicitação à análise de crédito em poucos passos — soluções financeiras para pessoas e empresas que precisam de agilidade, clareza e atendimento consultivo.</p>
     <div class="actions" style="margin-bottom:2rem">
-      <a href="https://wa.me/5516981266908" target="_blank" class="btn btn-primary">Fale com um consultor</a>
       <a href="#para-pessoas" class="btn btn-secondary">Conheça os produtos</a>
     </div>
   </div>
@@ -523,17 +522,9 @@ height:auto!important;
 <div class="car-wrap">
   <div class="car-track">
     <div class="parc-logo"><img src="https://www.celcoin.com.br/wp-content/uploads/2024/10/Logo-Celcoin-Roxo.svg" alt="Celcoin" onerror="this.style.display='none'"><span class="parc-nome">Celcoin</span></div>
-    <div class="parc-logo"><img src="https://grupoviacapital.com/wp-content/uploads/2023/07/via-capital-logo-1.svg" alt="Via Capital" onerror="this.style.display='none'"><span class="parc-nome">Via Capital</span></div>
     <div class="parc-logo"><img src="https://www.tigrebranco.com.br/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLOGO_PRETO.56ab7630.png&w=640&q=75" alt="Tigre Branco" onerror="this.style.display='none'"><span class="parc-nome">Tigre Branco</span></div>
-    <div class="parc-logo"><img src="https://www.cerc.com/wp-content/themes/temacerc/images/cerc.png" alt="CERC" onerror="this.style.display='none'"><span class="parc-nome">CERC</span></div>
-    <div class="parc-logo"><img src="b3.jpeg" alt="B3"><span class="parc-nome">B3</span></div>
-    <div class="parc-logo"><img src="serasa.jpeg" alt="Serasa"><span class="parc-nome">Serasa</span></div>
     <div class="parc-logo"><img src="https://www.celcoin.com.br/wp-content/uploads/2024/10/Logo-Celcoin-Roxo.svg" alt="Celcoin" onerror="this.style.display='none'"><span class="parc-nome">Celcoin</span></div>
-    <div class="parc-logo"><img src="https://grupoviacapital.com/wp-content/uploads/2023/07/via-capital-logo-1.svg" alt="Via Capital" onerror="this.style.display='none'"><span class="parc-nome">Via Capital</span></div>
     <div class="parc-logo"><img src="https://www.tigrebranco.com.br/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLOGO_PRETO.56ab7630.png&w=640&q=75" alt="Tigre Branco" onerror="this.style.display='none'"><span class="parc-nome">Tigre Branco</span></div>
-    <div class="parc-logo"><img src="https://www.cerc.com/wp-content/themes/temacerc/images/cerc.png" alt="CERC" onerror="this.style.display='none'"><span class="parc-nome">CERC</span></div>
-    <div class="parc-logo"><img src="b3.jpeg" alt="B3"><span class="parc-nome">B3</span></div>
-    <div class="parc-logo"><img src="serasa.jpeg" alt="Serasa"><span class="parc-nome">Serasa</span></div>
   </div>
 </div>
 </div>
@@ -549,7 +540,7 @@ height:auto!important;
         <h2>Crédito acessível para cada momento da sua vida</h2>
         <p>Aposentado, trabalhador CLT, MEI, autônomo ou beneficiário — temos uma solução no seu perfil. Atendimento ágil, análise objetiva e orientação clara.</p>
       </div>
-      <div class="actions"><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-primary">Simular agora pelo WhatsApp</a></div>
+      <div class="actions"></div>
     </div>
     <div class="split-photo reveal">
       <img src="pessoa_fisica.jpg" alt="Crédito para pessoas" onerror="this.parentElement.innerHTML='<div class=\'ph\'>Foto carrega após publicação</div>'">
@@ -593,7 +584,7 @@ height:auto!important;
 <div class="container">
   <div class="prod-page">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito INSS / Beneficiários</h3><div class="dest-badge" style="margin-top:.8rem">Mais procurado</div><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
+      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito INSS / Beneficiários</h3><div class="dest-badge" style="margin-top:.8rem">Mais procurado</div></div>
       <div><p class="prod-intro">O produto mais solicitado da Ardire. Para quem recebe INSS, pensão, LOAS, Bolsa Família ou qualquer benefício social com pagamento mensal recorrente.</p>
         <div class="prod-block"><strong>Para quem é</strong><p>Aposentados, pensionistas e beneficiários de programas sociais — INSS, LOAS, Bolsa Família e outros benefícios com pagamento recorrente.</p></div>
         <div class="prod-block"><strong>Como funciona</strong><p>O desconto é realizado diretamente no benefício todo mês — parcelas menores e taxas mais acessíveis. Sem necessidade de garantia ou fiador. A existência de restrições no CPF não impede a análise, mas a aprovação depende da elegibilidade e da política de crédito.</p></div>
@@ -604,7 +595,7 @@ height:auto!important;
 
   <div class="prod-page" id="produto-servidor-publico">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito Servidor Público</h3><div class="dest-badge" style="margin-top:.8rem">Servidor Público</div><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
+      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito Servidor Público</h3><div class="dest-badge" style="margin-top:.8rem">Servidor Público</div></div>
       <div><p class="prod-intro">Linha de crédito pessoal voltada a servidores públicos ativos, aposentados ou pensionistas, considerando renda comprovável, estabilidade do vínculo funcional e capacidade de pagamento.</p>
         <div class="prod-block"><strong>Para quem é</strong><p>Servidores públicos municipais, estaduais ou federais, ativos, aposentados ou pensionistas, com renda comprovável e documentação regular.</p></div>
         <div class="prod-block"><strong>Como funciona</strong><p>A operação é analisada como crédito pessoal, sem promessa de aprovação automática. A equipe avalia renda, vínculo funcional, histórico financeiro, documentação, capacidade de pagamento e política de crédito vigente.</p></div>
@@ -615,7 +606,7 @@ height:auto!important;
 
   <div class="prod-page" id="produto-clt">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito para CLT</h3><div class="dest-badge" style="margin-top:.8rem">Mais procurado</div><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
+      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito para CLT</h3><div class="dest-badge" style="margin-top:.8rem">Mais procurado</div></div>
       <div><p class="prod-intro">Trabalhador com carteira assinada tem acesso a condições melhores de crédito — mesmo com restrições no nome.</p>
         <div class="prod-block"><strong>Para quem é</strong><p>Trabalhadores com vínculo CLT ativo que precisam de crédito pessoal para qualquer finalidade, sem necessidade de justificativa.</p></div>
         <div class="prod-block"><strong>Como funciona</strong><p>Analisamos seu contracheque e a margem disponível. O desconto é feito em folha de pagamento — isso reduz o risco da operação e permite a aprovação observados os critérios de elegibilidade, margem e política de crédito.</p></div>
@@ -625,7 +616,7 @@ height:auto!important;
   </div>
   <div class="prod-page" id="produto-mei">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito MEI</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
+      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito MEI</h3></div>
       <div><p class="prod-intro">Microempreendedor Individual com CNPJ ativo? A Ardire oferece crédito com análise simplificada — sem as exigências burocráticas das grandes empresas.</p>
         <div class="prod-block"><strong>Para quem é</strong><p>MEIs com CNPJ ativo há pelo menos 6 meses, faturamento recorrente e necessidade de capital para girar ou expandir o negócio.</p></div>
         <div class="prod-block"><strong>Como funciona</strong><p>Analisamos o faturamento do CNPJ, o histórico financeiro e a capacidade de pagamento. Processo ágil e sem burocracia desnecessária.</p></div>
@@ -635,7 +626,7 @@ height:auto!important;
   </div>
   <div class="prod-page" id="produto-equity">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Pessoas</div><h3>Home / Car Equity</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
+      <div><div class="eyebrow">Para Pessoas</div><h3>Home / Car Equity</h3></div>
       <div><p class="prod-intro">Tem imóvel ou veículo quitado? Use como garantia e acesse valores mais altos com taxas reduzidas e prazo longo para pagamento.</p>
         <div class="prod-block"><strong>Para quem é</strong><p>Quem possui imóvel ou veículo e precisa de um valor mais expressivo com prazo estendido de pagamento.</p></div>
         <div class="prod-block"><strong>Como funciona</strong><p>O bem é avaliado e registrado como garantia da operação — isso permite taxas significativamente menores, em alguns casos com prazo de até 10 anos para pagamento.</p></div>
@@ -645,7 +636,7 @@ height:auto!important;
   </div>
   <div class="prod-page" id="produto-device">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Pessoas</div><h3>Assinatura de Device</h3><small style="color:rgba(213,173,85,.6);font-size:.72rem;display:block;margin-top:.3rem">Locação de Smartphone</small><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Saiba mais</a></div>
+      <div><div class="eyebrow">Para Pessoas</div><h3>Assinatura de Device</h3><small style="color:rgba(213,173,85,.6);font-size:.72rem;display:block;margin-top:.3rem">Locação de Smartphone</small></div>
       <div><p class="prod-intro">Acesse o smartphone que você quer pagando uma assinatura mensal — sem entrada, sem financiamento e sem comprometer o limite do seu cartão de crédito.</p>
         <div class="prod-block"><strong>Como funciona</strong><p>Funciona como um aluguel: você escolhe o aparelho, assina o contrato de locação e paga mensalmente. Ao final do período, decide se compra pelo valor residual combinado ou devolve o aparelho. O contrato é formalizado em seu nome com total transparência.</p></div>
         <div class="prod-block"><strong>Seguro incluso</strong><p>Todos os aparelhos contam com cobertura da Ardire Soluções — proteção contra roubo, furto qualificado e danos acidentais durante todo o período do contrato.</p></div>
@@ -655,7 +646,7 @@ height:auto!important;
   </div>
   <div class="prod-page" id="produto-garantia">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Garantia Locatícia</div><h3>Garantia de Aluguel</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div><div class="eyebrow">Garantia Locatícia</div><h3>Garantia de Aluguel</h3></div>
       <div><p class="prod-intro">Alternativa moderna e ágil ao fiador tradicional — para imobiliárias, locadores e inquilinos.</p>
         <div class="prod-block"><strong>Modalidade 1 — Fiança Locatícia Onerosa</strong><p>Sem necessidade de seguradora, contratação direta e ágil. Análise rápida e custo acessível para o inquilino.</p></div>
         <div class="prod-block"><strong>Modalidade 2 — Seguro Fiança (com SUSEP)</strong><p>Garantia emitida por seguradora regulamentada pela SUSEP. Cobertura formal ao locador em caso de inadimplência, com respaldo jurídico completo.</p></div>
@@ -665,7 +656,7 @@ height:auto!important;
   </div>
   <div class="prod-page" id="produto-seguros">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Ardire Soluções e Corretagem de Seguros</div><h3>Seguros</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Cotar seguro</a></div>
+      <div><div class="eyebrow">Ardire Soluções e Corretagem de Seguros</div><h3>Seguros</h3></div>
       <div><p class="prod-intro">A Ardire Soluções atua como corretora de seguros e oferece proteção completa para você e o que mais importa.</p>
         <div class="prod-block"><strong>Seguro Prestamista — destaque</strong><p>Protege suas parcelas de crédito em caso de desemprego involuntário, perda de renda, invalidez temporária ou permanente e falecimento. Ideal para quem contrata qualquer linha de crédito.</p></div>
         <div class="prod-block"><strong>Seguro de Celular — destaque</strong><p>Cobertura contra roubo, furto qualificado e danos acidentais do seu smartphone. Disponível para clientes da Assinatura de Device e também avulso.</p></div>
@@ -687,7 +678,7 @@ height:auto!important;
         <h2>Seu dinheiro preso nos recebíveis? A gente resolve</h2>
         <p>Do comércio travado na maquininha à empresa com grande carteira de recebíveis — a Ardire tem a solução certa para destravar seu caixa com agilidade.</p>
       </div>
-      <div class="actions"><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk">Falar com consultor</a></div>
+      <div class="actions"></div>
     </div>
     <div class="split-photo reveal">
       <img src="empresas.jpg" alt="Soluções para empresas" onerror="this.parentElement.innerHTML='<div class=\'ph\'>Foto carrega após publicação</div>'">
@@ -727,7 +718,7 @@ height:auto!important;
 <div class="container">
   <div class="prod-page">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Empresas</div><h3>Antecipação de Maquininha</h3><div class="dest-badge" style="margin-top:.8rem;background:var(--gold-dk)">Mais solicitado</div><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div><div class="eyebrow">Para Empresas</div><h3>Antecipação de Maquininha</h3><div class="dest-badge" style="margin-top:.8rem;background:var(--gold-dk)">Mais solicitado</div></div>
       <div><p class="prod-intro">Vendeu no crédito mas o dinheiro fica retido por semanas? Antecipe os recebíveis performados das suas maquininhas de cartão e tenha liquidez imediata para girar o negócio.</p>
         <div class="prod-block"><strong>Para quem é</strong><p>Comércios, lojas, restaurantes, salões e qualquer negócio que realiza vendas no crédito e débito via maquininha de cartão.</p></div>
         <div class="prod-block"><strong>Como funciona</strong><p>Analisamos o histórico de vendas realizadas (recebíveis performados) e antecipamos os valores a receber — você recebe agora e o pagamento é liquidado conforme as vendas chegam ao banco.</p></div>
@@ -737,7 +728,7 @@ height:auto!important;
   </div>
   <div class="prod-page" id="produto-recebiveis">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Empresas</div><h3>Antecipação de Recebíveis</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div><div class="eyebrow">Para Empresas</div><h3>Antecipação de Recebíveis</h3></div>
       <div><p class="prod-intro">Duplicatas, cheques, contratos, aluguéis, recebíveis médicos — qualquer recebível com lastro comprovável pode virar dinheiro no seu caixa.</p>
         <div class="prod-block"><strong>Para quem é</strong><p>Imobiliárias, clínicas, condomínios, distribuidoras e qualquer empresa que vende a prazo e possui recebíveis formalizados.</p></div>
         <div class="prod-block"><strong>Como funciona</strong><p>Avaliamos seus recebíveis, verificamos o lastro e antecipamos o valor com desconto. Em poucos dias o recurso está disponível no seu caixa.</p></div>
@@ -747,7 +738,7 @@ height:auto!important;
   </div>
   <div class="prod-page" id="produto-capital-giro">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Empresas</div><h3>Capital de Giro</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div><div class="eyebrow">Para Empresas</div><h3>Capital de Giro</h3></div>
       <div><p class="prod-intro">Precisa pagar fornecedor, comprar estoque ou simplesmente não parar? Estruturamos o crédito certo para o momento da sua empresa.</p>
         <div class="prod-block"><strong>Para quem é</strong><p>Empresas com CNPJ ativo há pelo menos 6 meses que precisam de capital operacional com análise ágil e sem exigências excessivas.</p></div>
         <div class="prod-block"><strong>Como funciona</strong><p>Analisamos faturamento, recebíveis e histórico financeiro. Além disso, seus recebíveis futuros (não performados) podem funcionar como trava de garantia da operação — sem necessidade de alienação de bens físicos.</p></div>
@@ -757,7 +748,7 @@ height:auto!important;
   </div>
   <div class="prod-page" id="produto-bnpl">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Empresas</div><h3>BNPL para Empresas</h3><small style="color:var(--gold-dk);font-size:.72rem;display:block;margin-top:.3rem">"Buy Now, Pay Later"</small><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div><div class="eyebrow">Para Empresas</div><h3>BNPL para Empresas</h3><small style="color:var(--gold-dk);font-size:.72rem;display:block;margin-top:.3rem">"Buy Now, Pay Later"</small></div>
       <div><p class="prod-intro">Ofereça parcelamento inteligente aos seus clientes sem assumir o risco financeiro da operação. A Ardire estrutura a solução de BNPL para o seu negócio.</p>
         <div class="prod-block"><strong>Como funciona</strong><p>O cliente compra e parcela sem juros visíveis — você recebe à vista. A Ardire assume a estruturação do crédito, a análise do consumidor final e o risco da operação.</p></div>
         <div class="prod-block"><strong>Para quem é</strong><p>Varejo, serviços e comércio eletrônico que desejam aumentar o ticket médio, melhorar a conversão e oferecer uma experiência de compra superior sem elevar a inadimplência.</p></div>
@@ -774,7 +765,7 @@ height:auto!important;
 <div class="container" style="position:relative;z-index:1">
   <div class="prod-page" style="border-top:none">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Ardire Soluções</div><h3>Cobrança e Recuperação</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div><div class="eyebrow">Ardire Soluções</div><h3>Cobrança e Recuperação</h3></div>
       <div><p class="prod-intro">Tem carteira de inadimplentes parada? A Ardire Soluções assume a gestão e trabalha ativamente para recuperar o máximo possível.</p>
         <div class="prod-block"><strong>Como funciona</strong><p>Assumimos a carteira e aplicamos uma régua de cobrança omnicanal — preventiva, administrativa e extrajudicial — com abordagem personalizada por perfil de devedor e estágio do crédito.</p></div>
         <div class="prod-block"><strong>O que analisamos</strong><p>Tamanho da carteira, tempo de atraso, perfil dos devedores e potencial de recuperação para definir a melhor estratégia.</p></div>
@@ -783,7 +774,7 @@ height:auto!important;
   </div>
   <div class="prod-page" id="produto-analise">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Ardire Soluções</div><h3>Análise de Risco</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div><div class="eyebrow">Ardire Soluções</div><h3>Análise de Risco</h3></div>
       <div>
         <p class="prod-intro">Tome decisões de crédito e locação com mais segurança, respaldadas por dados completos e análise criteriosa.</p>
         <ul>
@@ -1003,9 +994,7 @@ height:auto!important;
 </div>
 
 <!-- MOBILE CTA -->
-<div class="mobile-cta">
-  <a href="https://wa.me/5516981266908" target="_blank">Simular agora — WhatsApp</a>
-</div>
+
 
 <script>
 const WHATSAPP_NUMBER = '5516981266908';
@@ -1016,8 +1005,8 @@ const simConfig = {
   'servidor-publico': { taxa: 0.20, prazos: [6, 12, 18, 24], tipo: 'Parcela estimada' },
   'clt-consignado': { taxa: 0.20, prazos: [6, 12, 18, 24], tipo: 'Parcela estimada' },
   'clt-pessoal': { taxa: 0.20, prazos: [3, 6, 9, 12], tipo: 'Parcela estimada' },
-  'giro': { taxa: 0.15, prazos: [3, 6, 9, 12], tipo: 'Parcela estimada' },
-  'maquininha': { taxa: 0.15, prazos: [3, 6, 9, 12], tipo: 'Parcela estimada' }
+  'giro': { taxa: 0.30, prazos: [3, 6, 9, 12], tipo: 'Parcela estimada' },
+  'maquininha': { taxa: 0.05, prazos: [3, 6, 9, 12], tipo: 'Parcela estimada' }
 };
 
 function formatBR(value){
