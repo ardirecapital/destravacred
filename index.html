@@ -38,7 +38,7 @@ img{display:block;max-width:100%}
 .hamburger{display:none;background:transparent;border:1px solid var(--border);color:white;border-radius:8px;font-size:1.3rem;width:38px;height:38px;cursor:pointer}
 
 /* HERO */
-.hero{min-height:100vh;padding-top:78px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(rgba(13,30,48,.80),rgba(13,30,48,.88)),url('../hero.jpg') center/cover no-repeat}
+.hero{min-height:100vh;padding-top:78px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(rgba(13,30,48,.80),rgba(13,30,48,.88)),url('hero.jpg') center/cover no-repeat}
 .hero .watermark{opacity:.05}
 .hero-inner{position:relative;z-index:1;padding:3rem 0 1.5rem}
 .hero-logo{margin-bottom:1.8rem}
@@ -233,12 +233,12 @@ footer p,footer a{color:var(--muted);display:block;margin-bottom:7px;font-size:.
 
 /* WA FLOAT */
 .wa-wrap{position:fixed;right:22px;bottom:22px;z-index:998;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
-.wa-float{display:flex;align-items:center;justify-content:center;text-decoration:none;background:#25d366;border-radius:50%;width:58px;height:58px;padding:0;box-shadow:0 6px 24px rgba(37,211,102,.45);animation:wa-b 3s ease-in-out infinite}
+.wa-float{display:flex;align-items:center;gap:10px;text-decoration:none;background:#25d366;border-radius:50px;padding:13px 20px 13px 15px;box-shadow:0 6px 24px rgba(37,211,102,.45);animation:wa-b 3s ease-in-out infinite}
 .wa-float:hover{box-shadow:0 8px 32px rgba(37,211,102,.6);transform:scale(1.04);animation:none}
 @keyframes wa-b{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 .wa-float svg{width:26px;height:26px;fill:white;flex-shrink:0}
-.wa-label{display:none}
-.wa-hours{display:none}
+.wa-label{font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:700;color:white;white-space:nowrap;letter-spacing:.04em}
+.wa-hours{font-size:.68rem;color:rgba(255,255,255,.7);text-align:right;font-family:'Barlow Condensed',sans-serif;letter-spacing:.04em}
 .mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:997;background:var(--gold);padding:14px;text-align:center}
 .mobile-cta a{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy3);letter-spacing:.08em;text-transform:uppercase}
 
@@ -290,6 +290,9 @@ height:auto!important;
   .top-products-inner{flex-wrap:wrap}
   .tp-item{min-width:50%;border-bottom:1px solid var(--border)}
   section{padding:60px 0}
+  .wa-label{display:none}
+  .wa-float{padding:14px;border-radius:50%}
+  .wa-hours{display:none}
   .mobile-cta{display:block}
   .sim-row{grid-template-columns:1fr 1fr;gap:10px}.sim-modal-row{grid-template-columns:1fr}.sim-summary-grid{grid-template-columns:1fr}
   .hero-logo img{width:min(560px,95vw);height:auto}
@@ -366,15 +369,24 @@ height:auto!important;
       <button class="nav-drop-btn" type="button">Para Pessoas ▾</button>
       <div class="nav-drop-menu">
         <a href="#produto-inss">Crédito INSS / Beneficiários</a>
-        <a href="#produto-siape">Crédito Servidor Público</a>
-        <a href="#produto-pessoal">Crédito Pessoal</a>
+        <a href="#produto-servidor-publico">Crédito Servidor Público</a>
+        <a href="#produto-clt">Crédito CLT</a>
+        <a href="#produto-mei">Crédito MEI</a>
+        <a href="#produto-equity">Home / Car Equity</a>
+        <a href="#produto-device">Assinatura de Device</a>
+        <a href="#produto-garantia">Garantia Locatícia</a>
+        <a href="#produto-seguros">Seguros</a>
       </div>
     </div>
     <div class="nav-drop">
       <button class="nav-drop-btn" type="button">Para Empresas ▾</button>
       <div class="nav-drop-menu">
-        <a href="#produto-capital-giro">Capital de Giro</a>
         <a href="#produto-maquininha">Antecipação de Maquininha</a>
+        <a href="#produto-recebiveis">Antecipação de Recebíveis</a>
+        <a href="#produto-capital-giro">Capital de Giro</a>
+        <a href="#produto-bnpl">BNPL para Empresas</a>
+        <a href="#produto-cobranca">Cobrança e Recuperação</a>
+        <a href="#produto-analise">Análise de Risco</a>
       </div>
     </div>
     <a href="#investidores">Investidores</a>
@@ -390,7 +402,7 @@ height:auto!important;
 <div class="container hero-inner">
   <div class="reveal">
     <div class="hero-logo">
-      <img src="../logo-ardire.png" alt="Ardire Capital"
+      <img src="logo-ardire.png" alt="Ardire Capital"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <div style="display:none">
         <span style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(40px,7vw,80px);font-weight:700;letter-spacing:4px;color:#f8fafc;display:block">ARDIRE</span>
@@ -413,8 +425,9 @@ height:auto!important;
         <label>Produto</label>
         <select id="sim-produto" onchange="calcSimulador()">
           <option value="inss">Crédito INSS / Beneficiários</option>
-          <option value="siape">Crédito Servidor Público</option>
-          <option value="pessoal">Crédito Pessoal</option>
+          <option value="servidor-publico">Crédito Servidor Público</option>
+          <option value="clt-consignado">Crédito para CLT — Consignado</option>
+          <option value="clt-pessoal">Crédito para CLT — Pessoal</option>
           <option value="giro">Capital de Giro</option>
           <option value="maquininha">Antecipação de Maquininha</option>
         </select>
@@ -441,11 +454,11 @@ height:auto!important;
 <!-- TARJA -->
 <div class="top-products">
 <div class="top-products-inner container">
-  <a href="#produto-inss" class="tp-item"><div class="tp-label">Crédito INSS</div><div class="tp-badge">pessoas</div></a>
-  <a href="#produto-siape" class="tp-item"><div class="tp-label">Crédito Servidor Público</div><div class="tp-badge">servidor</div></a>
-  <a href="#produto-pessoal" class="tp-item"><div class="tp-label">Crédito Pessoal</div><div class="tp-badge">pessoas</div></a>
-  <a href="#produto-capital-giro" class="tp-item"><div class="tp-label">Capital de Giro</div><div class="tp-badge">empresas</div></a>
+  <a href="#produto-inss" class="tp-item"><div class="tp-label">Crédito INSS</div><div class="tp-badge">+ procurado</div></a>
+  <a href="#produto-servidor-publico" class="tp-item"><div class="tp-label">Servidor Público</div><div class="tp-badge">pessoas</div></a>
+  <a href="#produto-clt" class="tp-item"><div class="tp-label">Crédito CLT</div><div class="tp-badge">+ procurado</div></a>
   <a href="#produto-maquininha" class="tp-item"><div class="tp-label">Maquininha</div><div class="tp-badge">empresas</div></a>
+  <a href="#produto-capital-giro" class="tp-item"><div class="tp-label">Capital de Giro</div><div class="tp-badge">empresas</div></a>
 </div>
 </div>
 
@@ -453,7 +466,7 @@ height:auto!important;
 <div class="num-strip">
 <div class="container num-strip-inner">
   <div class="num-item"><strong>Lei 14.430</strong><span>Securitizadora Regulamentada</span></div>
-  <div class="num-item"><strong>5</strong><span>Produtos Focados</span></div>
+  <div class="num-item"><strong>+6</strong><span>Parceiros Estratégicos</span></div>
   <div class="num-item"><strong>Ágil</strong><span>Análise e Retorno Consultivo</span></div>
   <div class="num-item"><strong>Sem taxa</strong><span>Antecipada de Consulta</span></div>
   <div class="num-item"><strong>LGPD</strong><span>Dados Protegidos</span></div>
@@ -473,7 +486,7 @@ height:auto!important;
     <p>Atuamos com clareza, agilidade e os mais altos padrões éticos — sempre alinhando os interesses dos nossos clientes e parceiros à solidez e à governança que o mercado exige.</p>
     <div class="actions" style="margin-top:22px"><a href="#contato" class="btn btn-dk">Entre em contato</a></div>
   </div>
-  <div class="about-img reveal"><img src="../sobre.png" alt="Sobre a Ardire Capital">
+  <div class="about-img reveal"><img src="sobre.png" alt="Sobre a Ardire Capital">
   </div>
 </div>
 </section>
@@ -504,6 +517,27 @@ height:auto!important;
 </div>
 </section>
 
+<!-- PARCEIROS -->
+<div class="parc-section">
+<div class="parc-label">Parceiros e Integrações Estratégicas</div>
+<div class="car-wrap">
+  <div class="car-track">
+    <div class="parc-logo"><img src="https://www.celcoin.com.br/wp-content/uploads/2024/10/Logo-Celcoin-Roxo.svg" alt="Celcoin" onerror="this.style.display='none'"><span class="parc-nome">Celcoin</span></div>
+    <div class="parc-logo"><img src="https://grupoviacapital.com/wp-content/uploads/2023/07/via-capital-logo-1.svg" alt="Via Capital" onerror="this.style.display='none'"><span class="parc-nome">Via Capital</span></div>
+    <div class="parc-logo"><img src="https://www.tigrebranco.com.br/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLOGO_PRETO.56ab7630.png&w=640&q=75" alt="Tigre Branco" onerror="this.style.display='none'"><span class="parc-nome">Tigre Branco</span></div>
+    <div class="parc-logo"><img src="https://www.cerc.com/wp-content/themes/temacerc/images/cerc.png" alt="CERC" onerror="this.style.display='none'"><span class="parc-nome">CERC</span></div>
+    <div class="parc-logo"><img src="b3.jpeg" alt="B3"><span class="parc-nome">B3</span></div>
+    <div class="parc-logo"><img src="serasa.jpeg" alt="Serasa"><span class="parc-nome">Serasa</span></div>
+    <div class="parc-logo"><img src="https://www.celcoin.com.br/wp-content/uploads/2024/10/Logo-Celcoin-Roxo.svg" alt="Celcoin" onerror="this.style.display='none'"><span class="parc-nome">Celcoin</span></div>
+    <div class="parc-logo"><img src="https://grupoviacapital.com/wp-content/uploads/2023/07/via-capital-logo-1.svg" alt="Via Capital" onerror="this.style.display='none'"><span class="parc-nome">Via Capital</span></div>
+    <div class="parc-logo"><img src="https://www.tigrebranco.com.br/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FLOGO_PRETO.56ab7630.png&w=640&q=75" alt="Tigre Branco" onerror="this.style.display='none'"><span class="parc-nome">Tigre Branco</span></div>
+    <div class="parc-logo"><img src="https://www.cerc.com/wp-content/themes/temacerc/images/cerc.png" alt="CERC" onerror="this.style.display='none'"><span class="parc-nome">CERC</span></div>
+    <div class="parc-logo"><img src="b3.jpeg" alt="B3"><span class="parc-nome">B3</span></div>
+    <div class="parc-logo"><img src="serasa.jpeg" alt="Serasa"><span class="parc-nome">Serasa</span></div>
+  </div>
+</div>
+</div>
+
 <!-- PARA PESSOAS -->
 <section class="sec-dark" id="para-pessoas">
 <div class="watermark" id="wm-pessoas"></div>
@@ -512,27 +546,43 @@ height:auto!important;
     <div class="reveal">
       <div class="sec-title">
         <div class="eyebrow">Para Pessoas</div>
-        <h2>Crédito para beneficiários, servidores e pessoas físicas</h2>
-        <p>Atendimento focado em três linhas: Crédito INSS / Beneficiários, Crédito Servidor Público e Crédito Pessoal. A análise considera renda, documentação, margem quando aplicável e capacidade de pagamento.</p>
+        <h2>Crédito acessível para cada momento da sua vida</h2>
+        <p>Aposentado, trabalhador CLT, MEI, autônomo ou beneficiário — temos uma solução no seu perfil. Atendimento ágil, análise objetiva e orientação clara.</p>
       </div>
       <div class="actions"><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-primary">Simular agora pelo WhatsApp</a></div>
     </div>
     <div class="split-photo reveal">
-      <img src="../pessoa_fisica.jpg" alt="Crédito para pessoas" onerror="this.parentElement.innerHTML='<div class='ph'>Foto carrega após publicação</div>'">
+      <img src="pessoa_fisica.jpg" alt="Crédito para pessoas" onerror="this.parentElement.innerHTML='<div class=\'ph\'>Foto carrega após publicação</div>'">
     </div>
   </div>
   <div class="grid-3">
     <a href="#produto-inss" class="card dest reveal">
       <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=60')"></div>
-      <div class="card-content"><div class="dest-badge">Pessoas</div><h3>Crédito INSS / Beneficiários</h3><p>Para aposentados, pensionistas e beneficiários com renda recorrente. A contratação depende de elegibilidade, margem disponível e análise cadastral.</p><span class="sol-link">Ver como funciona →</span></div>
+      <div class="card-content"><div class="dest-badge">Mais procurado</div><h3>Crédito INSS / Beneficiários</h3><p>Para aposentados, pensionistas e beneficiários do INSS, LOAS, Bolsa Família e outros benefícios com pagamento recorrente. Desconto direto no benefício.</p><span class="sol-link">Ver como funciona →</span></div>
     </a>
-    <a href="#produto-siape" class="card dest reveal">
+    <a href="#produto-servidor-publico" class="card dest reveal">
       <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=60')"></div>
-      <div class="card-content"><div class="dest-badge">Servidor</div><h3>Crédito Servidor Público</h3><p>Crédito voltado a servidores públicos, com análise de renda, vínculo funcional, documentação e capacidade de pagamento.</p><span class="sol-link">Ver como funciona →</span></div>
+      <div class="card-content"><div class="dest-badge">Servidor</div><h3>Crédito Servidor Público</h3><p>Crédito pessoal para servidores públicos com renda comprovável e vínculo funcional, sujeito à análise cadastral, capacidade de pagamento e política de crédito.</p><span class="sol-link">Ver como funciona →</span></div>
     </a>
-    <a href="#produto-pessoal" class="card reveal">
+    <a href="#produto-clt" class="card dest reveal">
       <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&q=60')"></div>
-      <div class="card-content"><h3>Crédito Pessoal</h3><p>Crédito para pessoa física com análise objetiva de renda, histórico financeiro e capacidade de pagamento. Indicado para necessidades pontuais de caixa.</p><span class="sol-link">Ver como funciona →</span></div>
+      <div class="card-content"><div class="dest-badge">Mais procurado</div><h3>Crédito para CLT</h3><p>Tem carteira assinada? Use sua renda mensal para acessar crédito com análise objetiva e condições compatíveis com o seu perfil de renda.</p><span class="sol-link">Ver como funciona →</span></div>
+    </a>
+    <a href="#produto-mei" class="card reveal">
+      <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&q=60')"></div>
+      <div class="card-content"><h3>Crédito MEI</h3><p>Microempreendedor Individual com CNPJ ativo? Acesse crédito com análise simplificada, sem exigências de grande empresa.</p><span class="sol-link">Ver como funciona →</span></div>
+    </a>
+    <a href="#produto-equity" class="card reveal">
+      <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&q=60')"></div>
+      <div class="card-content"><h3>Home / Car Equity</h3><p>Use seu imóvel ou veículo como garantia e acesse valores maiores com prazos mais longos e as melhores taxas do mercado.</p><span class="sol-link">Ver como funciona →</span></div>
+    </a>
+    <a href="#produto-device" class="card reveal">
+      <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&q=60')"></div>
+      <div class="card-content"><h3>Assinatura de Device</h3><p>Acesse o smartphone que você quer pagando uma assinatura mensal — com mensalidade definida em contrato e possibilidade de seguro conforme a modalidade contratada.</p><span class="sol-link">Ver como funciona →</span></div>
+    </a>
+    <a href="#produto-garantia" class="card reveal">
+      <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=60')"></div>
+      <div class="card-content"><h3>Garantia Locatícia</h3><p>Quer alugar um imóvel sem precisar de fiador? A Ardire garante o contrato com agilidade e custo acessível.</p><span class="sol-link">Ver como funciona →</span></div>
     </a>
   </div>
 </div>
@@ -543,31 +593,84 @@ height:auto!important;
 <div class="container">
   <div class="prod-page">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito INSS / Beneficiários</h3><div class="dest-badge" style="margin-top:.8rem">Beneficiários</div><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
-      <div><p class="prod-intro">Linha de crédito para aposentados, pensionistas e beneficiários com renda mensal recorrente. A contratação é feita conforme regras de elegibilidade, margem disponível e política de crédito vigente.</p>
-        <div class="prod-block"><strong>Para quem é</strong><p>Aposentados, pensionistas e beneficiários que recebem renda recorrente e precisam de crédito com análise direcionada ao perfil do benefício.</p></div>
-        <div class="prod-block"><strong>Como funciona</strong><p>A equipe valida os dados cadastrais, o tipo de benefício, a renda recebida e a possibilidade de contratação. Quando houver margem consignável, a parcela pode ser descontada diretamente do benefício, conforme regras aplicáveis.</p></div>
-        <div class="prod-block"><strong>O que analisamos</strong><p>Documento pessoal, CPF, comprovante do benefício, margem disponível quando aplicável, comprovante de residência e dados bancários para análise e eventual liberação.</p></div>
+      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito INSS / Beneficiários</h3><div class="dest-badge" style="margin-top:.8rem">Mais procurado</div><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
+      <div><p class="prod-intro">O produto mais solicitado da Ardire. Para quem recebe INSS, pensão, LOAS, Bolsa Família ou qualquer benefício social com pagamento mensal recorrente.</p>
+        <div class="prod-block"><strong>Para quem é</strong><p>Aposentados, pensionistas e beneficiários de programas sociais — INSS, LOAS, Bolsa Família e outros benefícios com pagamento recorrente.</p></div>
+        <div class="prod-block"><strong>Como funciona</strong><p>O desconto é realizado diretamente no benefício todo mês — parcelas menores e taxas mais acessíveis. Sem necessidade de garantia ou fiador. A existência de restrições no CPF não impede a análise, mas a aprovação depende da elegibilidade e da política de crédito.</p></div>
+        <div class="prod-block"><strong>O que analisamos</strong><p>Número do benefício, margem disponível para desconto e documentação básica. Processo rápido e simples.</p></div>
       </div>
     </div>
   </div>
-  <div class="prod-page" id="produto-siape">
+
+  <div class="prod-page" id="produto-servidor-publico">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Servidores</div><h3>Crédito Servidor Público</h3><div class="dest-badge" style="margin-top:.8rem">Servidor Federal</div><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
-      <div><p class="prod-intro">O Crédito Servidor Público é uma modalidade voltada a servidores públicos com renda estável e vínculo funcional. A operação considera renda, documentação, capacidade de pagamento e política de crédito vigente, conforme elegibilidade e aprovação da análise.</p>
-        <div class="prod-block"><strong>Para quem é</strong><p>Servidores públicos ativos, aposentados ou pensionistas, desde que possuam renda comprovável e estejam aptos à contratação conforme análise cadastral, capacidade de pagamento e política de crédito.</p></div>
-        <div class="prod-block"><strong>Como funciona</strong><p>Após a simulação, são conferidos vínculo, margem consignável, renda, documentação e regras do convênio. Se aprovado, o contrato é formalizado digitalmente e a parcela pode ser descontada em folha, trazendo maior previsibilidade de pagamento.</p></div>
-        <div class="prod-block"><strong>O que analisamos</strong><p>Identificação do servidor, matrícula ou vínculo funcional, contracheque ou comprovante de renda, CPF, comprovante de residência e dados bancários. A aprovação final depende da política de crédito e da validação operacional.</p></div>
+      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito Servidor Público</h3><div class="dest-badge" style="margin-top:.8rem">Servidor Público</div><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
+      <div><p class="prod-intro">Linha de crédito pessoal voltada a servidores públicos ativos, aposentados ou pensionistas, considerando renda comprovável, estabilidade do vínculo funcional e capacidade de pagamento.</p>
+        <div class="prod-block"><strong>Para quem é</strong><p>Servidores públicos municipais, estaduais ou federais, ativos, aposentados ou pensionistas, com renda comprovável e documentação regular.</p></div>
+        <div class="prod-block"><strong>Como funciona</strong><p>A operação é analisada como crédito pessoal, sem promessa de aprovação automática. A equipe avalia renda, vínculo funcional, histórico financeiro, documentação, capacidade de pagamento e política de crédito vigente.</p></div>
+        <div class="prod-block"><strong>O que analisamos</strong><p>Documento pessoal, CPF, comprovante de renda ou contracheque, comprovante de residência, vínculo funcional, dados bancários e demais informações necessárias para análise cadastral e de crédito.</p></div>
       </div>
     </div>
   </div>
-  <div class="prod-page" id="produto-pessoal">
+
+  <div class="prod-page" id="produto-clt">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito Pessoal</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
-      <div><p class="prod-intro">Linha de crédito para pessoa física que precisa de recurso para organizar o orçamento, quitar despesas, resolver imprevistos ou concentrar pagamentos.</p>
-        <div class="prod-block"><strong>Para quem é</strong><p>Pessoas físicas com renda comprovável, conta bancária ativa e capacidade de pagamento compatível com o valor solicitado.</p></div>
-        <div class="prod-block"><strong>Como funciona</strong><p>A análise considera renda, histórico financeiro, comprometimento mensal e documentação básica. As condições finais são definidas após avaliação individual.</p></div>
-        <div class="prod-block"><strong>O que analisamos</strong><p>Documento pessoal, CPF, comprovante de renda, extratos quando necessários, comprovante de residência e dados bancários.</p></div>
+      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito para CLT</h3><div class="dest-badge" style="margin-top:.8rem">Mais procurado</div><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
+      <div><p class="prod-intro">Trabalhador com carteira assinada tem acesso a condições melhores de crédito — mesmo com restrições no nome.</p>
+        <div class="prod-block"><strong>Para quem é</strong><p>Trabalhadores com vínculo CLT ativo que precisam de crédito pessoal para qualquer finalidade, sem necessidade de justificativa.</p></div>
+        <div class="prod-block"><strong>Como funciona</strong><p>Analisamos seu contracheque e a margem disponível. O desconto é feito em folha de pagamento — isso reduz o risco da operação e permite a aprovação observados os critérios de elegibilidade, margem e política de crédito.</p></div>
+        <div class="prod-block"><strong>O que analisamos</strong><p>Renda mensal, margem disponível (limite legal de até 35% do salário líquido) e documentação básica.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="prod-page" id="produto-mei">
+    <div class="prod-box reveal">
+      <div><div class="eyebrow">Para Pessoas</div><h3>Crédito MEI</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
+      <div><p class="prod-intro">Microempreendedor Individual com CNPJ ativo? A Ardire oferece crédito com análise simplificada — sem as exigências burocráticas das grandes empresas.</p>
+        <div class="prod-block"><strong>Para quem é</strong><p>MEIs com CNPJ ativo há pelo menos 6 meses, faturamento recorrente e necessidade de capital para girar ou expandir o negócio.</p></div>
+        <div class="prod-block"><strong>Como funciona</strong><p>Analisamos o faturamento do CNPJ, o histórico financeiro e a capacidade de pagamento. Processo ágil e sem burocracia desnecessária.</p></div>
+        <div class="prod-block"><strong>O que analisamos</strong><p>CNPJ ativo (mínimo 6 meses), faturamento mensal, DAS e documentação pessoal do titular.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="prod-page" id="produto-equity">
+    <div class="prod-box reveal">
+      <div><div class="eyebrow">Para Pessoas</div><h3>Home / Car Equity</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Simular agora</a></div>
+      <div><p class="prod-intro">Tem imóvel ou veículo quitado? Use como garantia e acesse valores mais altos com taxas reduzidas e prazo longo para pagamento.</p>
+        <div class="prod-block"><strong>Para quem é</strong><p>Quem possui imóvel ou veículo e precisa de um valor mais expressivo com prazo estendido de pagamento.</p></div>
+        <div class="prod-block"><strong>Como funciona</strong><p>O bem é avaliado e registrado como garantia da operação — isso permite taxas significativamente menores, em alguns casos com prazo de até 10 anos para pagamento.</p></div>
+        <div class="prod-block"><strong>O que analisamos</strong><p>Valor e situação do bem, capacidade de pagamento e documentação completa.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="prod-page" id="produto-device">
+    <div class="prod-box reveal">
+      <div><div class="eyebrow">Para Pessoas</div><h3>Assinatura de Device</h3><small style="color:rgba(213,173,85,.6);font-size:.72rem;display:block;margin-top:.3rem">Locação de Smartphone</small><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Saiba mais</a></div>
+      <div><p class="prod-intro">Acesse o smartphone que você quer pagando uma assinatura mensal — sem entrada, sem financiamento e sem comprometer o limite do seu cartão de crédito.</p>
+        <div class="prod-block"><strong>Como funciona</strong><p>Funciona como um aluguel: você escolhe o aparelho, assina o contrato de locação e paga mensalmente. Ao final do período, decide se compra pelo valor residual combinado ou devolve o aparelho. O contrato é formalizado em seu nome com total transparência.</p></div>
+        <div class="prod-block"><strong>Seguro incluso</strong><p>Todos os aparelhos contam com cobertura da Ardire Soluções — proteção contra roubo, furto qualificado e danos acidentais durante todo o período do contrato.</p></div>
+        <div class="prod-block"><strong>Para quem é</strong><p>Quem quer ter um smartphone de qualidade sem comprometer o orçamento de uma só vez, sem precisar de cartão com limite disponível ou dinheiro à vista.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="prod-page" id="produto-garantia">
+    <div class="prod-box reveal">
+      <div><div class="eyebrow">Garantia Locatícia</div><h3>Garantia de Aluguel</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div><p class="prod-intro">Alternativa moderna e ágil ao fiador tradicional — para imobiliárias, locadores e inquilinos.</p>
+        <div class="prod-block"><strong>Modalidade 1 — Fiança Locatícia Onerosa</strong><p>Sem necessidade de seguradora, contratação direta e ágil. Análise rápida e custo acessível para o inquilino.</p></div>
+        <div class="prod-block"><strong>Modalidade 2 — Seguro Fiança (com SUSEP)</strong><p>Garantia emitida por seguradora regulamentada pela SUSEP. Cobertura formal ao locador em caso de inadimplência, com respaldo jurídico completo.</p></div>
+        <div class="prod-block"><strong>Para imobiliárias e locadores</strong><p>Ofereça uma garantia moderna aos seus clientes sem depender de fiador. Gestão de inadimplência incluída no processo.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="prod-page" id="produto-seguros">
+    <div class="prod-box reveal">
+      <div><div class="eyebrow">Ardire Soluções e Corretagem de Seguros</div><h3>Seguros</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Cotar seguro</a></div>
+      <div><p class="prod-intro">A Ardire Soluções atua como corretora de seguros e oferece proteção completa para você e o que mais importa.</p>
+        <div class="prod-block"><strong>Seguro Prestamista — destaque</strong><p>Protege suas parcelas de crédito em caso de desemprego involuntário, perda de renda, invalidez temporária ou permanente e falecimento. Ideal para quem contrata qualquer linha de crédito.</p></div>
+        <div class="prod-block"><strong>Seguro de Celular — destaque</strong><p>Cobertura contra roubo, furto qualificado e danos acidentais do seu smartphone. Disponível para clientes da Assinatura de Device e também avulso.</p></div>
+        <div class="prod-block"><strong>Seguro Fiança Locatícia — destaque</strong><p>Cobertura formal para locadores em caso de inadimplência do inquilino, emitida por seguradora regulamentada pela SUSEP.</p></div>
+        <div class="prod-block"><strong>Demais coberturas</strong><p>Seguro de vida, automóvel, residencial e demais produtos disponíveis no mercado. Somos corretores de toda a linha de seguros — consulte nossa equipe para encontrar a proteção ideal para você.</p></div>
       </div>
     </div>
   </div>
@@ -581,48 +684,115 @@ height:auto!important;
     <div class="reveal">
       <div class="sec-title">
         <div class="eyebrow">Para Empresas</div>
-        <h2>Capital de giro e antecipação para destravar o caixa</h2>
-        <p>Foco em operações empresariais objetivas: Capital de Giro e Antecipação de Maquininha. A análise considera faturamento, recebíveis, histórico operacional e documentação do CNPJ.</p>
+        <h2>Seu dinheiro preso nos recebíveis? A gente resolve</h2>
+        <p>Do comércio travado na maquininha à empresa com grande carteira de recebíveis — a Ardire tem a solução certa para destravar seu caixa com agilidade.</p>
       </div>
       <div class="actions"><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk">Falar com consultor</a></div>
     </div>
     <div class="split-photo reveal">
-      <img src="../empresas.jpg" alt="Soluções para empresas" onerror="this.parentElement.innerHTML='<div class='ph'>Foto carrega após publicação</div>'">
+      <img src="empresas.jpg" alt="Soluções para empresas" onerror="this.parentElement.innerHTML='<div class=\'ph\'>Foto carrega após publicação</div>'">
     </div>
   </div>
-  <div class="grid-2">
-    <a href="#produto-capital-giro" class="card dest reveal">
-      <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=60')"></div>
-      <div class="card-content"><div class="dest-badge">Empresas</div><h3>Capital de Giro</h3><p>Crédito para pagar fornecedor, comprar estoque, reforçar caixa ou financiar o ciclo operacional da empresa.</p><span class="sol-link">Ver como funciona →</span></div>
-    </a>
+  <div class="grid-3">
     <a href="#produto-maquininha" class="card dest reveal">
       <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&q=60')"></div>
-      <div class="card-content"><div class="dest-badge">Recebíveis</div><h3>Antecipação de Maquininha</h3><p>Antecipe valores de vendas no cartão e transforme recebíveis em caixa disponível para o negócio.</p><span class="sol-link">Ver como funciona →</span></div>
+      <div class="card-content"><div class="dest-badge">Mais solicitado</div><h3>Antecipação de Maquininha</h3><p>Vendeu no crédito mas o dinheiro fica retido por semanas? Antecipe os recebíveis das suas maquininhas e tenha liquidez imediata.</p><span class="sol-link">Ver como funciona →</span></div>
+    </a>
+    <a href="#produto-recebiveis" class="card reveal">
+      <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&q=60')"></div>
+      <div class="card-content"><h3>Antecipação de Recebíveis</h3><p>Duplicatas, cheques, contratos, aluguéis — qualquer recebível com lastro pode virar dinheiro no seu caixa em poucos dias.</p><span class="sol-link">Ver como funciona →</span></div>
+    </a>
+    <a href="#produto-capital-giro" class="card reveal">
+      <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=60')"></div>
+      <div class="card-content"><h3>Capital de Giro</h3><p>Crédito para pagar fornecedor, comprar estoque ou não parar. Análise baseada no seu faturamento, sem burocracia excessiva.</p><span class="sol-link">Ver como funciona →</span></div>
+    </a>
+    <a href="#produto-bnpl" class="card reveal">
+      <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&q=60')"></div>
+      <div class="card-content"><h3>BNPL para Empresas</h3><p>Ofereça parcelamento inteligente aos seus clientes sem assumir o risco financeiro. Aumente o ticket médio e a conversão.</p><span class="sol-link">Ver como funciona →</span></div>
+    </a>
+    <a href="#produto-cobranca" class="card reveal">
+      <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=60')"></div>
+      <div class="card-content"><h3>Cobrança e Recuperação</h3><p>Tem carteira de inadimplentes parada? A Ardire Soluções assume a gestão e trabalha para recuperar o máximo possível.</p><span class="sol-link">Ver como funciona →</span></div>
+    </a>
+    <a href="#produto-analise" class="card reveal">
+      <div class="card-bg" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=60')"></div>
+      <div class="card-content"><h3>Análise de Risco</h3><p>Decisões de crédito e locação mais seguras com relatórios completos de bureaux de crédito e análise comportamental.</p><span class="sol-link">Ver como funciona →</span></div>
     </a>
   </div>
 </div>
 </section>
 
 <!-- PRODUTOS EMPRESAS -->
-<section class="sec-light" id="produto-capital-giro" style="padding-top:0">
+<section class="sec-light" id="produto-maquininha" style="padding-top:0">
 <div class="container">
   <div class="prod-page">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Empresas</div><h3>Capital de Giro</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
-      <div><p class="prod-intro">Crédito empresarial para reforçar caixa, pagar fornecedores, comprar estoque, organizar compromissos de curto prazo ou sustentar o crescimento da operação.</p>
-        <div class="prod-block"><strong>Para quem é</strong><p>Empresas com CNPJ ativo, faturamento recorrente e necessidade de capital operacional.</p></div>
-        <div class="prod-block"><strong>Como funciona</strong><p>A análise considera faturamento, extratos, recebíveis, tempo de mercado, perfil dos sócios e capacidade de pagamento. A estrutura pode envolver parcelas fixas ou mecanismos de cobrança compatíveis com o fluxo da empresa.</p></div>
-        <div class="prod-block"><strong>O que analisamos</strong><p>CNPJ ativo, contrato social, documentos dos sócios, faturamento, extratos bancários, histórico de vendas e recebíveis disponíveis.</p></div>
+      <div><div class="eyebrow">Para Empresas</div><h3>Antecipação de Maquininha</h3><div class="dest-badge" style="margin-top:.8rem;background:var(--gold-dk)">Mais solicitado</div><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div><p class="prod-intro">Vendeu no crédito mas o dinheiro fica retido por semanas? Antecipe os recebíveis performados das suas maquininhas de cartão e tenha liquidez imediata para girar o negócio.</p>
+        <div class="prod-block"><strong>Para quem é</strong><p>Comércios, lojas, restaurantes, salões e qualquer negócio que realiza vendas no crédito e débito via maquininha de cartão.</p></div>
+        <div class="prod-block"><strong>Como funciona</strong><p>Analisamos o histórico de vendas realizadas (recebíveis performados) e antecipamos os valores a receber — você recebe agora e o pagamento é liquidado conforme as vendas chegam ao banco.</p></div>
+        <div class="prod-block"><strong>O que analisamos</strong><p>Volume de vendas mensais, histórico da maquininha, CNPJ ativo e documentação básica.</p></div>
       </div>
     </div>
   </div>
-  <div class="prod-page" id="produto-maquininha">
+  <div class="prod-page" id="produto-recebiveis">
     <div class="prod-box reveal">
-      <div><div class="eyebrow">Para Empresas</div><h3>Antecipação de Maquininha</h3><div class="dest-badge" style="margin-top:.8rem;background:var(--gold-dk)">Recebíveis de Cartão</div><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
-      <div><p class="prod-intro">Solução para empresas que vendem no cartão e querem transformar recebíveis futuros ou já performados em dinheiro disponível para o caixa.</p>
-        <div class="prod-block"><strong>Para quem é</strong><p>Comércios, lojas, restaurantes, salões, prestadores de serviço e empresas que realizam vendas via maquininha de cartão.</p></div>
-        <div class="prod-block"><strong>Como funciona</strong><p>São avaliados volume de vendas, histórico da maquininha, agenda de recebíveis, CNPJ e documentos da empresa. Se aprovado, os recebíveis podem ser antecipados com deságio ou utilizados como base para estruturação de crédito.</p></div>
-        <div class="prod-block"><strong>O que analisamos</strong><p>Volume mensal de vendas no cartão, agenda de recebíveis, adquirente utilizada, CNPJ ativo, dados dos sócios e documentação básica da empresa.</p></div>
+      <div><div class="eyebrow">Para Empresas</div><h3>Antecipação de Recebíveis</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div><p class="prod-intro">Duplicatas, cheques, contratos, aluguéis, recebíveis médicos — qualquer recebível com lastro comprovável pode virar dinheiro no seu caixa.</p>
+        <div class="prod-block"><strong>Para quem é</strong><p>Imobiliárias, clínicas, condomínios, distribuidoras e qualquer empresa que vende a prazo e possui recebíveis formalizados.</p></div>
+        <div class="prod-block"><strong>Como funciona</strong><p>Avaliamos seus recebíveis, verificamos o lastro e antecipamos o valor com desconto. Em poucos dias o recurso está disponível no seu caixa.</p></div>
+        <div class="prod-block"><strong>O que aceitamos</strong><p>Duplicatas, cheques, contratos de aluguel, recebíveis de cartão, notas fiscais e qualquer recebível com lastro comprovável e documentação adequada.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="prod-page" id="produto-capital-giro">
+    <div class="prod-box reveal">
+      <div><div class="eyebrow">Para Empresas</div><h3>Capital de Giro</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div><p class="prod-intro">Precisa pagar fornecedor, comprar estoque ou simplesmente não parar? Estruturamos o crédito certo para o momento da sua empresa.</p>
+        <div class="prod-block"><strong>Para quem é</strong><p>Empresas com CNPJ ativo há pelo menos 6 meses que precisam de capital operacional com análise ágil e sem exigências excessivas.</p></div>
+        <div class="prod-block"><strong>Como funciona</strong><p>Analisamos faturamento, recebíveis e histórico financeiro. Além disso, seus recebíveis futuros (não performados) podem funcionar como trava de garantia da operação — sem necessidade de alienação de bens físicos.</p></div>
+        <div class="prod-block"><strong>O que analisamos</strong><p>Faturamento mensal, tempo de mercado (mínimo 6 meses), recebíveis disponíveis, CNPJ ativo e documentação societária.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="prod-page" id="produto-bnpl">
+    <div class="prod-box reveal">
+      <div><div class="eyebrow">Para Empresas</div><h3>BNPL para Empresas</h3><small style="color:var(--gold-dk);font-size:.72rem;display:block;margin-top:.3rem">"Buy Now, Pay Later"</small><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-dk" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div><p class="prod-intro">Ofereça parcelamento inteligente aos seus clientes sem assumir o risco financeiro da operação. A Ardire estrutura a solução de BNPL para o seu negócio.</p>
+        <div class="prod-block"><strong>Como funciona</strong><p>O cliente compra e parcela sem juros visíveis — você recebe à vista. A Ardire assume a estruturação do crédito, a análise do consumidor final e o risco da operação.</p></div>
+        <div class="prod-block"><strong>Para quem é</strong><p>Varejo, serviços e comércio eletrônico que desejam aumentar o ticket médio, melhorar a conversão e oferecer uma experiência de compra superior sem elevar a inadimplência.</p></div>
+        <div class="prod-block"><strong>Diferenciais</strong><p>Integração com o fluxo de vendas do parceiro, análise de crédito do consumidor e gestão completa da carteira pela Ardire.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- COBRANÇA E ANÁLISE -->
+<section class="sec-dark" id="produto-cobranca" style="padding-top:2rem">
+<div class="watermark" id="wm-cobranca"></div>
+<div class="container" style="position:relative;z-index:1">
+  <div class="prod-page" style="border-top:none">
+    <div class="prod-box reveal">
+      <div><div class="eyebrow">Ardire Soluções</div><h3>Cobrança e Recuperação</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div><p class="prod-intro">Tem carteira de inadimplentes parada? A Ardire Soluções assume a gestão e trabalha ativamente para recuperar o máximo possível.</p>
+        <div class="prod-block"><strong>Como funciona</strong><p>Assumimos a carteira e aplicamos uma régua de cobrança omnicanal — preventiva, administrativa e extrajudicial — com abordagem personalizada por perfil de devedor e estágio do crédito.</p></div>
+        <div class="prod-block"><strong>O que analisamos</strong><p>Tamanho da carteira, tempo de atraso, perfil dos devedores e potencial de recuperação para definir a melhor estratégia.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="prod-page" id="produto-analise">
+    <div class="prod-box reveal">
+      <div><div class="eyebrow">Ardire Soluções</div><h3>Análise de Risco</h3><a href="https://wa.me/5516981266908" target="_blank" class="btn btn-secondary" style="margin-top:1rem;display:block;text-align:center">Falar sobre este produto</a></div>
+      <div>
+        <p class="prod-intro">Tome decisões de crédito e locação com mais segurança, respaldadas por dados completos e análise criteriosa.</p>
+        <ul>
+          <li>Pesquisa em Serasa, SPC, Quod e demais bureaux de crédito</li>
+          <li>Análise de score, histórico de pagamentos e capacidade financeira</li>
+          <li>Validação de dados cadastrais e documentação</li>
+          <li>Relatório de risco para decisão de crédito ou locação</li>
+          <li>Monitoramento de carteiras e evidências para compliance regulatório</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -708,11 +878,11 @@ height:auto!important;
     <p>Não encontrou o que procura? <a href="#contato" style="color:var(--gold-dk);font-weight:600">Fale conosco</a>.</p>
   </div>
   <div class="faq-list">
-    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>Como funciona o crédito INSS / Beneficiários?</span><span class="faq-icon">+</span></button><div class="faq-a">A análise considera o tipo de benefício, renda recebida, margem disponível quando aplicável, documentação e política de crédito. A aprovação não é automática e depende da validação cadastral e operacional.</div></div>
-    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>O que é Crédito Servidor Público?</span><span class="faq-icon">+</span></button><div class="faq-a">É uma linha voltada a servidores públicos com renda comprovável e vínculo funcional. A operação considera documentação, renda, capacidade de pagamento e política de crédito. A aprovação não é automática.</div></div>
-    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>Quem pode solicitar Crédito Pessoal?</span><span class="faq-icon">+</span></button><div class="faq-a">Pessoas físicas com renda comprovável, documentação regular e capacidade de pagamento compatível com o valor solicitado. As condições são definidas após análise individual.</div></div>
-    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>Como funciona o Capital de Giro para empresas?</span><span class="faq-icon">+</span></button><div class="faq-a">A análise considera CNPJ ativo, faturamento, extratos, recebíveis e documentação societária. O objetivo é reforçar o caixa da empresa para estoque, fornecedores, operação ou reorganização financeira.</div></div>
-    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>Como antecipar recebíveis de maquininha?</span><span class="faq-icon">+</span></button><div class="faq-a">A empresa informa seu volume de vendas no cartão e a agenda de recebíveis. Após análise, os valores podem ser antecipados mediante deságio ou usados como base para estruturação de crédito.</div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>Como funciona o crédito para aposentados e beneficiários do INSS?</span><span class="faq-icon">+</span></button><div class="faq-a">O crédito consignado para beneficiários do INSS funciona com desconto direto na folha de pagamento do benefício. A parcela é descontada automaticamente antes mesmo de você receber — o que reduz o risco da operação e permite taxas mais atrativas. Para ter acesso, basta ser aposentado ou pensionista com margem consignável disponível. A análise é simples, rápida e, na maioria dos casos, não há exigência de fiador ou garantia adicional. Mesmo quem tem restrições no CPF pode se qualificar.</div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>Trabalhador CLT pode pegar crédito mesmo com nome sujo?</span><span class="faq-icon">+</span></button><div class="faq-a">Sim! No crédito consignado para CLT, o que garante a operação é o desconto direto em folha de pagamento — autorizado pelo empregador. Como a parcela é descontada antes de você receber o salário, o risco de inadimplência é significativamente menor. Por isso é possível oferecer crédito mesmo para quem está com o nome negativado. Cada caso é analisado individualmente, respeitando os limites legais da margem consignável (em geral, até 35% do salário líquido).</div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>Meu comércio vende no cartão — como antecipar esses recebíveis?</span><span class="faq-icon">+</span></button><div class="faq-a">Todo valor que você vai receber das vendas no cartão nos próximos dias ou meses é um recebível. Pela antecipação de maquininha, você traz esse dinheiro para hoje com um desconto (taxa) sobre o total antecipado. O processo é simples: você indica as vendas que quer antecipar, nós analisamos a elegibilidade e liberamos o valor rapidamente na sua conta. É uma forma inteligente de ter capital de giro sem recorrer a empréstimos tradicionais.</div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>A Assinatura de Device fica registrada no meu nome?</span><span class="faq-icon">+</span></button><div class="faq-a">Sim. O contrato de locação é formalizado em seu nome — garantindo seus direitos como consumidor e a transparência total da operação. Você tem respaldo contratual sobre o aparelho, as condições de uso, manutenção e troca. Como não há transferência de propriedade do bem, o contrato não gera dívida de financiamento no seu nome. Ao final do período contratado, você decide: compra o aparelho pelo valor residual combinado ou o devolve.</div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>Quais documentos preciso para começar?</span><span class="faq-icon">+</span></button><div class="faq-a">Para pessoas físicas: documento de identidade (RG ou CNH), CPF, comprovante de renda (holerite, extrato do benefício INSS ou declaração) e comprovante de residência recente. Para empresas: CNPJ ativo, contrato social ou estatuto, documentos dos sócios, balanço patrimonial ou faturamento recente. Cada operação pode ter requisitos específicos, mas nossa equipe orienta você em cada etapa. Entre em contato e receba uma lista personalizada para o seu caso.</div></div>
   </div>
 </div>
 </section>
@@ -741,11 +911,20 @@ height:auto!important;
         <optgroup label="Para Pessoas">
           <option>Crédito INSS / Beneficiários</option>
           <option>Crédito Servidor Público</option>
-          <option>Crédito Pessoal</option>
+          <option>Crédito CLT</option>
+          <option>Crédito MEI</option>
+          <option>Home Equity / Car Equity</option>
+          <option>Assinatura de Device</option>
+          <option>Garantia Locatícia</option>
+          <option>Seguros</option>
         </optgroup>
         <optgroup label="Para Empresas">
-          <option>Capital de Giro</option>
           <option>Antecipação de Maquininha</option>
+          <option>Antecipação de Recebíveis</option>
+          <option>Capital de Giro</option>
+          <option>BNPL para Empresas</option>
+          <option>Cobrança e Recuperação</option>
+          <option>Análise de Risco</option>
         </optgroup>
         <optgroup label="Outros">
           <option>Parceria / Correspondente</option>
@@ -784,7 +963,7 @@ height:auto!important;
 <div class="container">
   <div class="footer-grid">
     <div>
-      <img src="../logo-ardire.png" alt="Ardire Capital" style="height:38px;margin-bottom:12px;object-fit:contain" onerror="this.style.display='none'">
+      <img src="logo-ardire.png" alt="Ardire Capital" style="height:38px;margin-bottom:12px;object-fit:contain" onerror="this.style.display='none'">
       <p>Soluções em crédito para empresas e pessoas. Securitizadora constituída sob a Lei 14.430/2022.</p>
       <div class="footer-selos">
         <div class="selo"><span class="selo-icon">🔒</span> Site seguro</div>
@@ -816,8 +995,10 @@ height:auto!important;
 
 <!-- WA FLOAT -->
 <div class="wa-wrap">
+  <div class="wa-hours">24h · Preferencial 9h–19h</div>
   <a href="https://wa.me/5516981266908" target="_blank" class="wa-float" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="wa-label">Falar no WhatsApp</span>
   </a>
 </div>
 
@@ -827,244 +1008,99 @@ height:auto!important;
 </div>
 
 <script>
-// WATERMARK
-const termos=['CCB','Duplicata','CRI','CRA','FIDC','Debênture','Recebível','Nota Comercial','Cessão','Lastro','Securitização','CPR','CDCA','Consignado','INSS','Antecipação','Capital','Equity','Garantia'];
-function buildWM(id){
-  const el=document.getElementById(id);if(!el)return;
-  const W=el.offsetWidth||1200,H=el.offsetHeight||600;
-  const cols=Math.ceil(W/180),rows=Math.ceil(H/55);
-  let h='';
-  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
-    const t=termos[(r*cols+c)%termos.length];
-    h+=`<span class="wt" style="left:${c*180+(r%2)*90}px;top:${r*50}px">${t}</span>`;
-  }
-  el.innerHTML=h;
-}
-window.addEventListener('load',()=>['wm-hero','wm-grupo','wm-pessoas','wm-cobranca','wm-inv'].forEach(buildWM));
+const WHATSAPP_NUMBER = '5516981266908';
+const FORMSUBMIT_URL = 'https://formsubmit.co/ajax/contato@ardirecapital.com.br';
 
-// SIMULADOR
-const prodConfig={
-  'inss':{taxa:0.20,maxPrazo:36,tipo:'parcela',label:'Crédito INSS / Beneficiários'},
-  'siape':{taxa:0.20,maxPrazo:36,tipo:'parcela',label:'Crédito Servidor Público'},
-  'pessoal':{taxa:0.20,maxPrazo:12,tipo:'parcela',label:'Crédito Pessoal'},
-  'giro':{taxa:0.15,maxPrazo:30,tipo:'diario',label:'Capital de Giro'},
-  'maquininha':{taxa:0.15,maxPrazo:1,tipo:'desagio',label:'Antecipação de Maquininha'}
+const simConfig = {
+  'inss': { taxa: 0.20, prazos: [6, 12, 18, 24], tipo: 'Parcela estimada' },
+  'servidor-publico': { taxa: 0.20, prazos: [6, 12, 18, 24], tipo: 'Parcela estimada' },
+  'clt-consignado': { taxa: 0.20, prazos: [6, 12, 18, 24], tipo: 'Parcela estimada' },
+  'clt-pessoal': { taxa: 0.20, prazos: [3, 6, 9, 12], tipo: 'Parcela estimada' },
+  'giro': { taxa: 0.15, prazos: [3, 6, 9, 12], tipo: 'Parcela estimada' },
+  'maquininha': { taxa: 0.15, prazos: [3, 6, 9, 12], tipo: 'Parcela estimada' }
 };
 
-let ultimaSimulacao=null;
-
-function moedaBR(valor){return 'R$ '+Number(valor||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}
-
-const FORM_ENDPOINT='https://formsubmit.co/ajax/contato@ardirecapital.com.br';
-async function enviarLeadDireto(payload){
-  const dados={...payload,_captcha:'false',_template:'table',_autoresponse:'Recebemos seus dados na Ardire Capital. Nossa equipe analisará sua solicitação e retornará pelo contato informado.'};
-  const resp=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(dados)});
-  if(!resp.ok)throw new Error('Falha no envio do formulário.');
-  return resp.json().catch(()=>({success:true}));
-}
-function setBtnLoading(btn,loading,textoNormal){
-  if(!btn)return;
-  btn.disabled=!!loading;
-  btn.dataset.originalText=btn.dataset.originalText||textoNormal||btn.textContent;
-  btn.textContent=loading?'Enviando...':btn.dataset.originalText;
+function formatBR(value){
+  return Number(value || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
 
-
-// VALIDAÇÃO DE DADOS — evita nome incompleto, telefone falso e e-mail aleatório
-function normalizarTexto(txt){
-  return String(txt||'').trim().replace(/\s+/g,' ');
+function parseBR(value){
+  const cleaned = String(value || '').replace(/[^\d,.-]/g,'').replace(/\./g,'').replace(',','.');
+  return Number(cleaned || 0);
 }
 
-function apenasDigitos(txt){
-  return String(txt||'').replace(/\D/g,'');
+function onlyDigits(value){
+  return String(value || '').replace(/\D/g,'');
 }
 
-function validarNomeCompleto(nome){
-  const n=normalizarTexto(nome);
-  const partes=n.split(' ').filter(Boolean);
-  if(partes.length<2)return {ok:false,msg:'Informe nome e sobrenome.'};
-  if(n.length<5)return {ok:false,msg:'Informe seu nome completo.'};
-  if(/[^a-zA-ZÀ-ÿ' -]/.test(n))return {ok:false,msg:'O nome não deve conter números ou símbolos.'};
-  if(/(.)\1{3,}/i.test(n.replace(/\s/g,'')))return {ok:false,msg:'Informe um nome válido.'};
-  const invalidos=['teste','testando','asdf','qwerty','abc','abcd','nome','sobrenome','cliente','usuario','usuário','nao sei','não sei'];
-  const lower=n.toLowerCase();
-  if(invalidos.some(x=>lower.includes(x)))return {ok:false,msg:'Informe um nome real para continuar.'};
-  for(const parte of partes){
-    const limpa=parte.replace(/['-]/g,'');
-    if(limpa.length<2)return {ok:false,msg:'Informe nome e sobrenome válidos.'};
-  }
-  return {ok:true,valor:n};
-}
-
-function validarTelefoneBrasil(tel){
-  const d=apenasDigitos(tel);
-  let n=d;
-  if(n.startsWith('55')&&n.length>=12)n=n.slice(2);
-  if(!(n.length===10||n.length===11))return {ok:false,msg:'Informe um telefone brasileiro válido com DDD.'};
-  const ddd=n.slice(0,2);
-  const numero=n.slice(2);
-  const dddsValidos=new Set(['11','12','13','14','15','16','17','18','19','21','22','24','27','28','31','32','33','34','35','37','38','41','42','43','44','45','46','47','48','49','51','53','54','55','61','62','63','64','65','66','67','68','69','71','73','74','75','77','79','81','82','83','84','85','86','87','88','89','91','92','93','94','95','96','97','98','99']);
-  if(!dddsValidos.has(ddd))return {ok:false,msg:'Informe um DDD válido.'};
-  if(/^(\d)\1+$/.test(n))return {ok:false,msg:'Informe um telefone real. Sequências repetidas não são aceitas.'};
-  if(/(0{6,}|1{6,}|2{6,}|3{6,}|4{6,}|5{6,}|6{6,}|7{6,}|8{6,}|9{6,})/.test(n))return {ok:false,msg:'Informe um telefone real. Sequências repetidas não são aceitas.'};
-  if(['00000000','11111111','12345678','123456789','987654321','99999999','999999999'].includes(numero))return {ok:false,msg:'Informe um telefone real.'};
-  if(n.length===11 && n[2]!=='9')return {ok:false,msg:'Celular deve conter o nono dígito após o DDD.'};
-  return {ok:true,valor:n};
-}
-
-function validarEmail(email){
-  const e=normalizarTexto(email).toLowerCase();
-  if(!e)return {ok:false,msg:'Informe um e-mail válido.'};
-  const regex=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  if(!regex.test(e))return {ok:false,msg:'Informe um e-mail válido.'};
-  const [local,dominio]=e.split('@');
-  if(!local||!dominio)return {ok:false,msg:'Informe um e-mail válido.'};
-  if(local.length<3)return {ok:false,msg:'Informe um e-mail válido.'};
-  if(/^(.)\1{4,}$/.test(local))return {ok:false,msg:'Informe um e-mail real.'};
-  if(/(0{5,}|1{5,}|2{5,}|3{5,}|4{5,}|5{5,}|6{5,}|7{5,}|8{5,}|9{5,})/.test(local))return {ok:false,msg:'E-mails com sequência repetida não são aceitos.'};
-  const locaisInvalidos=['teste','test','asdf','qwerty','abc','abcd','email','nome','usuario','usuário','naosei','nao-sei','sememail'];
-  if(locaisInvalidos.includes(local)||locaisInvalidos.some(x=>local===x+'123'||local===x+'1234'))return {ok:false,msg:'Informe um e-mail real para continuar.'};
-  const dominiosInvalidos=['teste.com','test.com','email.com','exemplo.com','example.com','dominio.com','site.com','naosei.com'];
-  if(dominiosInvalidos.includes(dominio))return {ok:false,msg:'Informe um domínio de e-mail real.'};
-  if(!dominio.includes('.'))return {ok:false,msg:'Informe um e-mail válido.'};
-  return {ok:true,valor:e};
-}
-
-function validarDadosLead({nome,tel,email},opcoes={}){
-  const exigeTelefone=opcoes.exigeTelefone!==false;
-  const exigeEmail=opcoes.exigeEmail!==false;
-  const vn=validarNomeCompleto(nome);
-  if(!vn.ok)return vn;
-  let vt={ok:true,valor:normalizarTexto(tel)};
-  let ve={ok:true,valor:normalizarTexto(email)};
-  if(exigeTelefone||normalizarTexto(tel)){
-    vt=validarTelefoneBrasil(tel);
-    if(!vt.ok)return vt;
-  }
-  if(exigeEmail||normalizarTexto(email)){
-    ve=validarEmail(email);
-    if(!ve.ok)return ve;
-  }
-  return {ok:true,nome:vn.valor,tel:vt.valor,email:ve.valor};
-}
-
-function getSimulacao(){
-  const produtoEl=document.getElementById('sim-produto');
-  const prazoEl=document.getElementById('sim-prazo');
-  const valorEl=document.getElementById('sim-valor');
-  if(!produtoEl||!prazoEl||!valorEl)return null;
-  const prod=produtoEl.value;
-  const config=prodConfig[prod];
-  const valor=parseFloat(valorEl.value)||0;
-  if(!config||!valor||valor<100)return null;
-  const taxa=config.taxa;
-  const prazo=parseInt(prazoEl.value)||config.maxPrazo;
-  let resultado='',label='Parcela estimada',detalhe='';
-  if(config.tipo==='desagio'){
-    const liquido=valor*(1-taxa);
-    resultado=moedaBR(liquido);
-    label='Valor líquido estimado';
-    detalhe='Solicitação de '+moedaBR(valor)+' com deságio estimado a partir de '+(taxa*100).toFixed(0)+'%. Valor líquido estimado: '+moedaBR(liquido)+'.';
-  }else if(config.tipo==='diario'){
-    const total=valor*(1+taxa);
-    const diario=total/30;
-    resultado=moedaBR(diario)+'/dia';
-    label='Pagamento diário estimado';
-    detalhe='Valor solicitado: '+moedaBR(valor)+'. Custo total estimado: '+moedaBR(total)+'. Pagamento diário estimado em 30 dias: '+moedaBR(diario)+'.';
-  }else{
-    const parcela=valor*(taxa*Math.pow(1+taxa,prazo))/(Math.pow(1+taxa,prazo)-1);
-    const total=parcela*prazo;
-    resultado=moedaBR(parcela);
-    label='Parcela estimada';
-    detalhe='Valor solicitado: '+moedaBR(valor)+'. Prazo: '+prazo+' '+(prazo===1?'mês':'meses')+'. Parcela estimada: '+moedaBR(parcela)+'. Total estimado: '+moedaBR(total)+'.';
-  }
-  return {produto:config.label,valor,prazo,taxa,resultado,label,detalhe,tipo:config.tipo};
-}
-
-function calcSimulador(){
-  const prod=document.getElementById('sim-produto').value;
-  const config=prodConfig[prod];
-  const prazoEl=document.getElementById('sim-prazo');
-  const valorEl=document.getElementById('sim-valor');
-  const resultEl=document.getElementById('sim-parcela');
-  const labelEl=document.getElementById('sim-result-label');
-  const discEl=document.getElementById('sim-disclaimer');
-  if(!config||!prazoEl||!valorEl||!resultEl||!discEl)return;
-  const selectedAtual=prazoEl.value;
-  prazoEl.innerHTML='';
-  if(config.tipo==='desagio'){
-    prazoEl.innerHTML='<option value="1">À vista (deságio)</option>';
-  }else if(config.tipo==='diario'){
-    prazoEl.innerHTML='<option value="30">30 dias (pagamento diário)</option>';
-  }else{
-    const max=config.maxPrazo;
-    const opcoes=max<=6?[1,2,3,4,5,6]:max<=12?[3,6,9,12]:[6,12,18,24,30,36];
-    opcoes.filter(p=>p<=max).forEach(p=>{
-      const opt=document.createElement('option');
-      opt.value=p;
-      opt.textContent=p===1?'1 mês':`${p} meses`;
-      if(String(p)===selectedAtual)opt.selected=true;
-      prazoEl.appendChild(opt);
-    });
-    if(!prazoEl.value){prazoEl.value=String(max)}
-  }
-  const sim=getSimulacao();
-  if(!sim){
-    resultEl.textContent='R$ —';
-    if(labelEl)labelEl.textContent='Parcela estimada';
-    discEl.textContent='* Simulação meramente ilustrativa. A taxa final é definida após análise de crédito individual. Sujeito à aprovação.';
-    ultimaSimulacao=null;
-    return;
-  }
-  resultEl.textContent=sim.resultado;
-  if(labelEl)labelEl.textContent=sim.label;
-  if(sim.tipo==='desagio'){
-    discEl.textContent='* Simulação meramente ilustrativa. Deságio indicado apenas como referência inicial. A taxa final depende de análise, lastro, prazo e elegibilidade.';
-  }else if(sim.tipo==='diario'){
-    discEl.textContent='* Simulação meramente ilustrativa. O valor diário exibido representa o pagamento estimado, não o valor liberado por dia. Sujeito à análise e aprovação.';
-  }else{
-    discEl.textContent='* Simulação com taxa de referência a partir de '+(sim.taxa*100).toFixed(0)+'% ao mês. A taxa final é definida após análise de crédito. Sujeito à aprovação.';
-  }
-  ultimaSimulacao=sim;
-}
-
-function resumoSimulacaoTexto(){
-  const sim=ultimaSimulacao||getSimulacao();
-  if(!sim)return '';
-  return 'Produto: '+sim.produto+'\n'+sim.detalhe+'\nObservação: simulação meramente ilustrativa, sujeita à análise de crédito, confirmação cadastral, documentação e aprovação.';
-}
-
-
-function onlyDigits(v){
-  return String(v || '').replace(/\D/g,'');
-}
-
-function maskCpfValue(v){
-  const d = onlyDigits(v).slice(0,11);
+function maskCpfValue(value){
+  const d = onlyDigits(value).slice(0, 11);
   if(d.length <= 3) return d;
-  if(d.length <= 6) return d.replace(/(\d{3})(\d+)/,'$1.$2');
-  if(d.length <= 9) return d.replace(/(\d{3})(\d{3})(\d+)/,'$1.$2.$3');
-  return d.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/,'$1.$2.$3-$4');
+  if(d.length <= 6) return d.replace(/(\d{3})(\d+)/, '$1.$2');
+  if(d.length <= 9) return d.replace(/(\d{3})(\d{3})(\d+)/, '$1.$2.$3');
+  return d.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, '$1.$2.$3-$4');
 }
 
 function isValidCpf(cpf){
   const d = onlyDigits(cpf);
   if(d.length !== 11) return false;
   if(/^(\d)\1{10}$/.test(d)) return false;
+
   let sum = 0;
-  for(let i=0;i<9;i++) sum += parseInt(d.charAt(i),10) * (10 - i);
+  for(let i = 0; i < 9; i++) sum += parseInt(d.charAt(i), 10) * (10 - i);
   let check = 11 - (sum % 11);
   if(check >= 10) check = 0;
-  if(check !== parseInt(d.charAt(9),10)) return false;
+  if(check !== parseInt(d.charAt(9), 10)) return false;
+
   sum = 0;
-  for(let i=0;i<10;i++) sum += parseInt(d.charAt(i),10) * (11 - i);
+  for(let i = 0; i < 10; i++) sum += parseInt(d.charAt(i), 10) * (11 - i);
   check = 11 - (sum % 11);
   if(check >= 10) check = 0;
-  return check === parseInt(d.charAt(10),10);
+
+  return check === parseInt(d.charAt(10), 10);
 }
 
-function setupCpfMasks(){
-  ['sim-cpf','cpf'].forEach(function(id){
+function isValidFullName(name){
+  const clean = String(name || '').trim().replace(/\s+/g, ' ');
+  if(clean.length < 5) return false;
+  const parts = clean.split(' ').filter(Boolean);
+  if(parts.length < 2) return false;
+  return parts.every(part => part.length >= 2 && /^[A-Za-zÀ-ÿ'.-]+$/.test(part));
+}
+
+function isValidPhone(phone){
+  const d = onlyDigits(phone);
+  if(d.length < 10 || d.length > 11) return false;
+  if(/^(\d)\1+$/.test(d)) return false;
+  if(/^(0+|1+|2+|3+|4+|5+|6+|7+|8+|9+)$/.test(d)) return false;
+  if(['1234567890','12345678901','0123456789','01234567890','9876543210','98765432109'].includes(d)) return false;
+  const ddd = Number(d.slice(0,2));
+  if(ddd < 11 || ddd > 99) return false;
+  const number = d.slice(2);
+  if(/^(\d)\1+$/.test(number)) return false;
+  return true;
+}
+
+function isValidEmail(email){
+  const clean = String(email || '').trim().toLowerCase();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(clean)) return false;
+
+  const [local, domain] = clean.split('@');
+  if(!local || !domain) return false;
+  if(local.length < 2 || domain.length < 4) return false;
+
+  const blockedLocal = ['teste','test','email','mail','asdf','qwerty','abc','aaa','aaaa','usuario','user','nome'];
+  const blockedDomains = ['teste.com','test.com','email.com','mail.com','exemplo.com','example.com','asdf.com','qwerty.com'];
+
+  if(blockedLocal.includes(local)) return false;
+  if(blockedDomains.includes(domain)) return false;
+  if(/^(\w)\1+$/.test(local)) return false;
+
+  return true;
+}
+
+function setupMasks(){
+  ['sim-cpf','cpf'].forEach(id => {
     const el = document.getElementById(id);
     if(el){
       el.addEventListener('input', function(){
@@ -1074,198 +1110,374 @@ function setupCpfMasks(){
   });
 }
 
-function updateSimSummary(){
-  const summary=document.getElementById('sim-summary');
-  if(!summary)return;
-  const sim=ultimaSimulacao||getSimulacao();
-  if(!sim){
-    summary.innerHTML='Preencha o simulador para gerar o resumo.';
+function calcParcela(valor, taxa, prazo){
+  if(!valor || !taxa || !prazo) return 0;
+  return valor * (taxa * Math.pow(1 + taxa, prazo)) / (Math.pow(1 + taxa, prazo) - 1);
+}
+
+function updatePrazos(){
+  const produtoEl = document.getElementById('sim-produto');
+  const prazoEl = document.getElementById('sim-prazo');
+  if(!produtoEl || !prazoEl) return;
+
+  const produto = produtoEl.value;
+  const config = simConfig[produto] || simConfig['inss'];
+  const atual = prazoEl.value;
+
+  prazoEl.innerHTML = '';
+  config.prazos.forEach(prazo => {
+    const opt = document.createElement('option');
+    opt.value = prazo;
+    opt.textContent = `${prazo} meses`;
+    prazoEl.appendChild(opt);
+  });
+
+  if(config.prazos.map(String).includes(String(atual))) prazoEl.value = atual;
+}
+
+function calcSimulador(){
+  updatePrazos();
+
+  const produtoEl = document.getElementById('sim-produto');
+  const valorEl = document.getElementById('sim-valor');
+  const prazoEl = document.getElementById('sim-prazo');
+  const parcelaEl = document.getElementById('sim-parcela');
+  const labelEl = document.getElementById('sim-result-label');
+
+  if(!produtoEl || !valorEl || !prazoEl || !parcelaEl) return;
+
+  const config = simConfig[produtoEl.value] || simConfig['inss'];
+  const valor = Number(valorEl.value || 0);
+  const prazo = Number(prazoEl.value || 0);
+
+  if(labelEl) labelEl.textContent = config.tipo;
+
+  if(valor <= 0 || prazo <= 0){
+    parcelaEl.textContent = 'R$ —';
     return;
   }
-  let valorSolicitado=moedaBR(sim.valor);
-  let prazoTexto='-';
-  let parcelaTexto=sim.resultado||'-';
-  let totalTexto='-';
 
-  if(sim.tipo==='desagio'){
-    prazoTexto='À vista';
-    parcelaTexto='Valor líquido: '+sim.resultado;
-    totalTexto=sim.resultado;
-  }else if(sim.tipo==='diario'){
-    prazoTexto='30 dias';
-    parcelaTexto=sim.resultado;
-    totalTexto=moedaBR(sim.valor*(1+sim.taxa));
-  }else{
-    prazoTexto=sim.prazo+' '+(sim.prazo===1?'mês':'meses');
-    totalTexto=moedaBR(parseBR(sim.resultado)*Number(sim.prazo));
-  }
+  const parcela = calcParcela(valor, config.taxa, prazo);
+  parcelaEl.textContent = formatBR(parcela);
+}
 
-  summary.innerHTML=`
+function getSimData(){
+  const produtoEl = document.getElementById('sim-produto');
+  const valorEl = document.getElementById('sim-valor');
+  const prazoEl = document.getElementById('sim-prazo');
+  const parcelaEl = document.getElementById('sim-parcela');
+
+  const produto = produtoEl && produtoEl.options[produtoEl.selectedIndex] ? produtoEl.options[produtoEl.selectedIndex].text : '-';
+  const valor = Number(valorEl ? valorEl.value || 0 : 0);
+  const prazo = Number(prazoEl ? prazoEl.value || 0 : 0);
+  const parcelaTexto = parcelaEl ? parcelaEl.textContent.trim() : 'R$ —';
+  const parcela = parcelaTexto !== 'R$ —' ? parseBR(parcelaTexto) : 0;
+  const total = parcela && prazo ? parcela * prazo : 0;
+
+  return { produto, valor, prazo, parcelaTexto, parcela, total };
+}
+
+function updateSimSummary(){
+  const summary = document.getElementById('sim-summary');
+  if(!summary) return;
+
+  const data = getSimData();
+
+  summary.innerHTML = `
     <div class="sim-summary-title">Resumo da simulação</div>
     <div class="sim-summary-grid">
-      <div class="sim-summary-item"><span>Produto</span><strong>${sim.produto}</strong></div>
-      <div class="sim-summary-item"><span>Valor solicitado</span><strong>${valorSolicitado}</strong></div>
-      <div class="sim-summary-item"><span>Prazo</span><strong>${prazoTexto}</strong></div>
-      <div class="sim-summary-item"><span>Parcela estimada</span><strong>${parcelaTexto}</strong></div>
-      <div class="sim-summary-item"><span>Total estimado</span><strong>${totalTexto}</strong></div>
+      <div class="sim-summary-item"><span>Produto</span><strong>${data.produto}</strong></div>
+      <div class="sim-summary-item"><span>Valor solicitado</span><strong>${data.valor > 0 ? formatBR(data.valor) : '-'}</strong></div>
+      <div class="sim-summary-item"><span>Prazo</span><strong>${data.prazo > 0 ? data.prazo + ' meses' : '-'}</strong></div>
+      <div class="sim-summary-item"><span>Parcela estimada</span><strong>${data.parcela > 0 ? data.parcelaTexto : '-'}</strong></div>
+      <div class="sim-summary-item"><span>Total estimado</span><strong>${data.total > 0 ? formatBR(data.total) : '-'}</strong></div>
       <div class="sim-summary-item"><span>Status</span><strong>Sujeito à análise</strong></div>
     </div>
-    <div class="sim-summary-note">Simulação meramente ilustrativa. A taxa final, aprovação, documentação e liberação dependem da análise de crédito e validação cadastral.</div>
+    <div class="sim-summary-note">Simulação meramente ilustrativa. Taxa final, aprovação, documentação e liberação dependem da análise de crédito e validação cadastral.</div>
   `;
 }
 
 function openSimModal(){
   calcSimulador();
-  const resumo=resumoSimulacaoTexto();
-  const box=document.getElementById('sim-summary');
-  if(!resumo){
-    alert('Preencha o valor desejado para gerar a simulação.');
+
+  const data = getSimData();
+  if(data.valor <= 0){
+    alert('Informe o valor desejado para simular.');
     return;
   }
-  if(box)box.innerHTML='<strong>Resumo da simulação</strong><br>'+resumo.replace(/\n/g,'<br>');
+
   updateSimSummary();
-  document.getElementById('simModal').classList.add('open');
+
+  const modal = document.getElementById('simModal');
+  if(modal) modal.classList.add('open');
 }
 
-function closeSimModal(){document.getElementById('simModal').classList.remove('open')}
+function closeSimModal(){
+  const modal = document.getElementById('simModal');
+  if(modal) modal.classList.remove('open');
+}
 
-function dadosSimContato(){
-  const nome=(document.getElementById('sim-nome').value||'').trim();
-  const tel=(document.getElementById('sim-telefone').value||'').trim();
-  const cpf=(document.getElementById('sim-cpf').value||'').trim();
-  const email=(document.getElementById('sim-email').value||'').trim();
-  const validacao=validarDadosLead({nome,tel,email},{exigeTelefone:true,exigeEmail:true});
-  if(!validacao.ok){alert(validacao.msg);return null}
-  if(!isValidCpf(cpf)){alert('Informe um CPF válido.');return null}
-  return {nome:validacao.nome,tel:validacao.tel,cpf:maskCpfValue(cpf),email:validacao.email};
+function getSimLeadData(){
+  const nome = document.getElementById('sim-nome') ? document.getElementById('sim-nome').value.trim() : '';
+  const telefone = document.getElementById('sim-telefone') ? document.getElementById('sim-telefone').value.trim() : '';
+  const cpf = document.getElementById('sim-cpf') ? document.getElementById('sim-cpf').value.trim() : '';
+  const email = document.getElementById('sim-email') ? document.getElementById('sim-email').value.trim() : '';
+  const sim = getSimData();
+
+  return { nome, telefone, cpf, email, ...sim };
+}
+
+function validateLeadData(data){
+  if(!isValidFullName(data.nome)){
+    alert('Informe nome completo, com nome e sobrenome válidos.');
+    return false;
+  }
+  if(!isValidPhone(data.telefone)){
+    alert('Informe um telefone válido com DDD.');
+    return false;
+  }
+  if(!isValidCpf(data.cpf)){
+    alert('Informe um CPF válido.');
+    return false;
+  }
+  if(!isValidEmail(data.email)){
+    alert('Informe um e-mail válido.');
+    return false;
+  }
+  return true;
+}
+
+function buildSimMessage(data){
+  return `Olá, vim pelo site da Ardire Capital e gostaria de atendimento para uma simulação.
+
+Dados do cliente:
+Nome: ${data.nome}
+CPF: ${data.cpf}
+Telefone: ${data.telefone}
+E-mail: ${data.email}
+
+Resumo da simulação:
+Produto: ${data.produto}
+Valor solicitado: ${formatBR(data.valor)}
+Prazo: ${data.prazo} meses
+Parcela estimada: ${data.parcelaTexto}
+Total estimado: ${formatBR(data.total)}
+
+Página de origem: ${window.location.href}`;
 }
 
 function sendSimWhatsapp(){
-  const resumo=resumoSimulacaoTexto();
-  if(!resumo){alert('Preencha o valor desejado para gerar a simulação.');return}
-  const d=dadosSimContato();
-  if(!d)return;
-  const texto=encodeURIComponent(`Olá, Ardire Capital. Fiz uma simulação de crédito pelo site e quero atendimento.
+  const data = getSimLeadData();
+  if(!validateLeadData(data)) return;
 
-Nome: ${d.nome}
-Telefone: ${d.tel}
-CPF: ${d.cpf}
-E-mail: ${d.email}
-
-${resumo}`);
-  window.open('https://wa.me/5516981266908?text='+texto,'_blank');
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildSimMessage(data))}`;
+  window.open(url, '_blank');
 }
 
 async function sendSimDireto(){
-  const resumo=resumoSimulacaoTexto();
-  if(!resumo){alert('Preencha o valor desejado para gerar a simulação.');return}
-  const d=dadosSimContato();
-  if(!d)return;
-  const btn=event&&event.currentTarget?event.currentTarget:null;
-  setBtnLoading(btn,true,'Enviar direto para a Ardire');
+  const data = getSimLeadData();
+  if(!validateLeadData(data)) return;
+
+  const payload = {
+    _subject: 'Nova simulação pelo site Ardire Capital',
+    origem: 'Simulador do site',
+    pagina: window.location.href,
+    nome: data.nome,
+    telefone: data.telefone,
+    cpf: data.cpf,
+    email: data.email,
+    produto: data.produto,
+    valor_solicitado: formatBR(data.valor),
+    prazo: `${data.prazo} meses`,
+    parcela_estimada: data.parcelaTexto,
+    total_estimado: formatBR(data.total),
+    mensagem: buildSimMessage(data)
+  };
+
   try{
-    await enviarLeadDireto({origem:'Simulador de crédito do site',_subject:'Nova simulação de crédito pelo site',nome:d.nome,telefone:d.tel,cpf:d.cpf,email:d.email,resumo_da_simulacao:resumo});
-    alert('Simulação enviada para a Ardire Capital. Nossa equipe retornará pelo contato informado.');
+    const response = await fetch(FORMSUBMIT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if(!response.ok) throw new Error('Falha no envio');
+
+    alert('Simulação enviada com sucesso. A equipe da Ardire Capital entrará em contato.');
     closeSimModal();
-  }catch(e){
-    alert('Não foi possível enviar diretamente agora. Tente novamente ou chame pelo WhatsApp.');
-  }finally{
-    setBtnLoading(btn,false,'Enviar direto para a Ardire');
-  }
-}
-function sendSimEmail(){sendSimDireto()}
-
-document.addEventListener('DOMContentLoaded',calcSimulador);
-const simProdutoEl=document.getElementById('sim-produto');
-if(simProdutoEl)simProdutoEl.addEventListener('change',calcSimulador);
-
-// MENU MOBILE
-const hbg=document.getElementById('hamburger');
-const menuEl=document.getElementById('menu');
-const drops=document.querySelectorAll('.nav-drop');
-hbg.addEventListener('click',()=>{menuEl.classList.toggle('active');hbg.textContent=menuEl.classList.contains('active')?'✕':'☰'});
-drops.forEach(d=>{
-  const btn=d.querySelector('.nav-drop-btn');if(!btn)return;
-  btn.addEventListener('click',e=>{
-    e.stopPropagation();
-    drops.forEach(x=>{if(x!==d)x.classList.remove('open')});
-    if(window.innerWidth<=980)d.classList.toggle('open');
-  });
-});
-document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>{menuEl.classList.remove('active');hbg.textContent='☰';drops.forEach(d=>d.classList.remove('open'))}));
-
-// FAQ
-function toggleFaq(btn){
-  const item=btn.closest('.faq-item');
-  const isOpen=item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
-  if(!isOpen)item.classList.add('open');
-}
-
-// REVEAL
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')}),{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
-
-// FORMULÁRIO DE CONTATO → ENVIO DIRETO E WHATSAPP
-function getContatoDados(){
-  const nome=document.getElementById('nome').value.trim();
-  const tel=document.getElementById('telefone').value.trim();
-  const cpf=(document.getElementById('cpf').value||'').trim();
-  const email=document.getElementById('email').value.trim();
-  const int=document.getElementById('interesse').value;
-  const msg=document.getElementById('mensagem').value.trim();
-  const validacao=validarDadosLead({nome,tel,email},{exigeTelefone:true,exigeEmail:true});
-  if(!validacao.ok){alert(validacao.msg);return null}
-  if(!isValidCpf(cpf)){alert('Informe um CPF válido.');return null}
-  return {nome:validacao.nome,tel:validacao.tel,cpf:maskCpfValue(cpf),email:validacao.email,int,msg};
-}
-
-function montarContatoTexto(){
-  const d=getContatoDados();
-  if(!d)return null;
-  let texto='Olá, Ardire Capital!\n\n';
-  texto+='Nome: '+d.nome+'\n';
-  texto+='Telefone: '+d.tel+'\n';
-  texto+='CPF: '+d.cpf+'\n';
-  texto+='E-mail: '+d.email;
-  if(d.int)texto+='\nInteresse: '+d.int;
-  if(d.msg)texto+='\n\nMensagem:\n'+d.msg;
-  return texto;
-}
-
-async function sendContatoDireto(e){
-  e.preventDefault();
-  const d=getContatoDados();
-  if(!d)return;
-  const btn=e&&e.submitter?e.submitter:document.querySelector('#contato button[type="submit"]');
-  setBtnLoading(btn,true,'Enviar direto para a Ardire');
-  try{
-    await enviarLeadDireto({origem:'Formulário de contato do site',_subject:'Novo contato pelo site Ardire Capital',nome:d.nome,telefone:d.tel,cpf:d.cpf,email:d.email,interesse:d.int||'Não informado',mensagem:d.msg||'Não informada'});
-    alert('Contato enviado para a Ardire Capital. Nossa equipe retornará pelo contato informado.');
-    document.querySelector('#contato form').reset();
-  }catch(err){
-    alert('Não foi possível enviar diretamente agora. Tente novamente ou chame pelo WhatsApp.');
-  }finally{
-    setBtnLoading(btn,false,'Enviar direto para a Ardire');
+  }catch(error){
+    alert('Não foi possível enviar direto agora. Use o botão de WhatsApp para encaminhar a simulação.');
   }
 }
 
 function sendContatoWhatsapp(){
-  const texto=montarContatoTexto();
-  if(!texto)return;
-  window.open(`https://wa.me/5516981266908?text=${encodeURIComponent(texto)}`,'_blank');
+  const nome = document.getElementById('nome') ? document.getElementById('nome').value.trim() : '';
+  const telefone = document.getElementById('telefone') ? document.getElementById('telefone').value.trim() : '';
+  const cpf = document.getElementById('cpf') ? document.getElementById('cpf').value.trim() : '';
+  const email = document.getElementById('email') ? document.getElementById('email').value.trim() : '';
+  const interesse = document.getElementById('interesse') ? document.getElementById('interesse').value : '';
+  const mensagem = document.getElementById('mensagem') ? document.getElementById('mensagem').value.trim() : '';
+
+  if(!isValidFullName(nome)){
+    alert('Informe nome completo, com nome e sobrenome válidos.');
+    return;
+  }
+  if(!isValidPhone(telefone)){
+    alert('Informe um telefone válido com DDD.');
+    return;
+  }
+  if(!isValidCpf(cpf)){
+    alert('Informe um CPF válido.');
+    return;
+  }
+  if(!isValidEmail(email)){
+    alert('Informe um e-mail válido.');
+    return;
+  }
+
+  const msg = `Olá, vim pelo site da Ardire Capital e gostaria de atendimento.
+
+Nome: ${nome}
+CPF: ${cpf}
+Telefone: ${telefone}
+E-mail: ${email}
+Interesse: ${interesse || 'Não informado'}
+Mensagem: ${mensagem || 'Não informada'}
+
+Página de origem: ${window.location.href}`;
+
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
-function sendWA(e){sendContatoDireto(e)}
-function sendContatoEmail(){const fakeEvent={preventDefault(){},submitter:null};sendContatoDireto(fakeEvent)}
+async function sendContatoDireto(event){
+  event.preventDefault();
 
-function parseBR(value){
-  const cleaned = String(value || '').replace(/[^\d,.-]/g,'').replace(/\./g,'').replace(',','.');
-  return Number(cleaned || 0);
+  const nome = document.getElementById('nome') ? document.getElementById('nome').value.trim() : '';
+  const telefone = document.getElementById('telefone') ? document.getElementById('telefone').value.trim() : '';
+  const cpf = document.getElementById('cpf') ? document.getElementById('cpf').value.trim() : '';
+  const email = document.getElementById('email') ? document.getElementById('email').value.trim() : '';
+  const interesse = document.getElementById('interesse') ? document.getElementById('interesse').value : '';
+  const mensagem = document.getElementById('mensagem') ? document.getElementById('mensagem').value.trim() : '';
+
+  if(!isValidFullName(nome)){
+    alert('Informe nome completo, com nome e sobrenome válidos.');
+    return;
+  }
+  if(!isValidPhone(telefone)){
+    alert('Informe um telefone válido com DDD.');
+    return;
+  }
+  if(!isValidCpf(cpf)){
+    alert('Informe um CPF válido.');
+    return;
+  }
+  if(!isValidEmail(email)){
+    alert('Informe um e-mail válido.');
+    return;
+  }
+
+  const payload = {
+    _subject: 'Novo contato pelo site Ardire Capital',
+    origem: 'Formulário de contato',
+    pagina: window.location.href,
+    nome,
+    telefone,
+    cpf,
+    email,
+    interesse,
+    mensagem
+  };
+
+  try{
+    const response = await fetch(FORMSUBMIT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if(!response.ok) throw new Error('Falha no envio');
+
+    alert('Contato enviado com sucesso. A equipe da Ardire Capital entrará em contato.');
+    event.target.reset();
+  }catch(error){
+    alert('Não foi possível enviar direto agora. Use o botão de WhatsApp para encaminhar sua solicitação.');
+  }
 }
 
+function toggleFaq(btn){
+  const item = btn.closest('.faq-item');
+  if(item) item.classList.toggle('open');
+}
 
-document.addEventListener('DOMContentLoaded', setupCpfMasks);
+function setupNav(){
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+
+  if(hamburger && menu){
+    hamburger.addEventListener('click', () => menu.classList.toggle('active'));
+  }
+
+  document.querySelectorAll('.nav-drop-btn').forEach(btn => {
+    btn.addEventListener('click', function(){
+      if(window.innerWidth <= 980){
+        this.parentElement.classList.toggle('open');
+      }
+    });
+  });
+
+  document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      if(menu) menu.classList.remove('active');
+    });
+  });
+}
+
+function setupReveal(){
+  const items = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    items.forEach(el => el.classList.add('active'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  items.forEach(el => observer.observe(el));
+}
+
+function setupWatermark(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+
+  const words = ['ARDIRE CAPITAL', 'SECURITIZAÇÃO', 'CRÉDITO', 'RECEBÍVEIS', 'GOVERNANÇA'];
+  for(let i = 0; i < 28; i++){
+    const span = document.createElement('span');
+    span.className = 'wt';
+    span.textContent = words[i % words.length];
+    span.style.left = `${Math.random() * 100}%`;
+    span.style.top = `${Math.random() * 100}%`;
+    span.style.transform = `rotate(${Math.random() * 40 - 20}deg)`;
+    el.appendChild(span);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  setupMasks();
+  setupNav();
+  setupReveal();
+  setupWatermark('wm-hero');
+  setupWatermark('wm-grupo');
+  setupWatermark('wm-pessoas');
+  setupWatermark('wm-inv');
+  updatePrazos();
+  calcSimulador();
+});
 </script>
 </body>
 </html>
